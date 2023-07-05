@@ -1,0 +1,58 @@
+/* BUTTON */
+#apply-all-btt,
+.apply-button,
+.detail-button,
+#filter-clear-all-btt {
+    margin-left: -1.5%;
+    margin-top: 4%;
+    border-radius: 8px;
+    text-transform: none;
+    height: 2.89em;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    font-family: "Sora";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 18px;
+    white-space: nowrap;
+}
+#apply-all-btt:hover,
+.apply-button:hover,
+.detail-button:hover,
+#filter-clear-all-btt:hover {
+    transform: scale(1.02) !important;
+}
+
+/* Clear All */
+#filter-clear-all-btt {
+    border: 1px solid #6a38c2;
+    color: #6a38c2;
+}
+
+/* Apply Now */
+.apply-button,
+#apply-all-btt{
+    color: #ffffff !important;
+    background: #6a38c2 !important;
+}
+
+/* View Details */
+.detail-button{
+    border: 1px solid#000000;
+    color: #000000;
+    opacity: 0.9;
+}
+
+/* Apply All*/
+#apply-all-btt{
+    position: absolute;
+    bottom: 0;
+    left: 94%;
+    opacity: 0.5; /* Opacità ridotta per indicare che il pulsante non è attivo */
+}
+
+.applied{
+    color: #ffffff !important;
+    background: #4A2787 !important;
+}

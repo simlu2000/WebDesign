@@ -1,0 +1,123 @@
+.mdc-card__action-buttons {
+  display: flex; /* Imposta il display come flex */
+  align-items: center;
+}
+
+.mdc-card__action-buttons button {
+  margin-right: 10px; /* Aggiunge margine destro tra i bottoni */
+  white-space: nowrap; /* Impedisce il testo di andare a capo */
+}
+
+.mdc-card__action-icons {
+  margin-left: none; /* Allinea gli elementi a destra */
+}
+
+.mdc-card {
+  padding: 20px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
+  min-height: 40vh;
+}
+
+.inline-container {
+  display: inline-flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.inline-container > * {
+  margin: 0;
+  padding: 0;
+}
+
+/* imagine */
+.image-padding {
+  padding-right: 20px;
+  padding-bottom: 20px;
+}
+
+.image-border {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 50%;
+}
+
+.circle-container {
+  width: 76px; /* Imposta le dimensioni del cerchio */
+  height: 76px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* title: company, location, description, profession*/
+.column-container {
+  display: flex;
+  flex-direction: column;
+  font-family: "Sora";
+  font-style: normal;
+  font-weight: 400;
+}
+
+.company-title,
+.profession-title {
+  color: #000000;
+  letter-spacing: 0.0015em;
+  font-size: 16px;
+  line-height: 20px;
+  height: 20px;
+}
+
+.location-title,
+.description-title {
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: 0.005em;
+  color: rgba(0, 0, 0, 0.4);
+}
+/* favorite */
+.favorite {
+  color: rgba(0, 0, 0, 0.5); /* Colore iniziale del cuoricino */
+}
+
+/* chips */
+.chips-container {
+  display: flex;
+  gap: 8px;
+}
+
+.chips {
+  width: 64px;
+  height: 10px;
+  font-family: "Sora";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 10px;
+  line-height: 10px;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 8px;
+  border-radius: 4px;
+  text-align: center;
+  letter-spacing: 0.015em;
+}
+
+/* spazio separator */
+.p {
+  padding: 10px;
+}
+
+.material-symbols-outlined-filled {
+  font-variation-settings:
+  'FILL' 1,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 48
+}
+
+.cardSelected {
+  background: #ffffff;
+  border: 2px solid #6a38c2;
+  box-shadow: 0px 4px 6px 2px rgba(0, 0, 0, 0.15);
+  border-radius: 12px;
+}

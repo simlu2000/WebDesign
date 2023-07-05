@@ -1,0 +1,33 @@
+.inputProfile {
+    background-color: white;
+}
+
+.fixed-textarea {
+    width: 100%;
+    height: 160px;
+    border: none;
+}
+
+.grey {
+    color: #999;
+}
+
+
+.left_links {
+    color: #959993;
+    text-decoration: none;
+}
+
+.left_links:visited {
+    color: #959993;
+    text-decoration: none;
+}
+
+body,
+html {
+    scroll-padding-top: 150px;
+}
+
+#aboutme_link {
+    margin-bottom: 250px;
+}

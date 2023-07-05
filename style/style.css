@@ -1,0 +1,62 @@
+* {
+  font-family: 'Sora', sans-serif;
+}
+
+.mdc-layout-grid,
+body {
+  padding: 0%;
+  margin: 0%;
+  height: 100%;
+  overflow-y: hidden;
+}
+
+.mdc-layout-grid__cell {
+  padding: 1%;
+}
+
+.mdc-layout-grid__inner .with-gutter {
+  margin-bottom: 10px; /* Spazio tra le righe */
+}
+
+.mdc-layout-grid__cell {
+  margin-bottom: 10px; /* Spazio tra le righe */
+}
+
+/*Filter style*/
+.filter-style {
+  background-color: #83FF000D; /* #83FF00 5%*/
+  min-height: 100vh !important;
+  width: 320px;
+}
+
+/*Serch style*/
+.search-area {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #ccc;
+  width: 100%;
+}
+
+.search-icon {
+  margin-right: 8px;
+  color: rgba(0, 0, 0, 0.54);
+}
+
+.search-input {
+  border: none;
+  outline: none;
+  flex: 1;
+}
+
+#jobs-data, #expandedDiv {
+  overflow-y: auto;
+  max-height: 80vh;
+}
+
+.nowrapping{
+  white-space: nowrap;
+}
+
+#FilterArea p {
+  font-weight: lighter;
+}

@@ -1,0 +1,83 @@
+.templateExpanded {
+  background: #ffffff;
+  border: 2px solid #6a38c2;
+  box-shadow: 0px 4px 6px 2px rgba(0, 0, 0, 0.15);
+  border-radius: 12px;
+}
+
+/* templateExpanded */
+#share {
+  padding-right: 30px;
+}
+
+.description-title-expanded {
+  font-family: "Sora";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 30px;
+  color: #000000;
+}
+
+.chips-container-expanded {
+  display: flex;
+  gap: 10px;
+}
+.chips-expanded {
+  width: 110px;
+  height: 18px;
+  font-family: "Sora";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 18px;
+  align-items: center;
+  justify-content: center;
+  padding: 5px 11px;
+  border-radius: 6px;
+  text-align: center;
+  letter-spacing: 0.02em;
+}
+
+.chips-container-expanded .chips-expanded {
+  margin-right: 20px; /* specifica lo spazio orizzontale tra le "chips" */
+  margin-bottom: 20px; /* specifica lo spazio verticale tra le righe di "chips" */
+}
+.p1 {
+  padding: 5px;
+}
+.p3 {
+  padding: 15px;
+}
+
+.space {
+  padding-right: 80px;
+}
+
+.textarea {
+  font-family: "Sora";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: 0.005em;
+  color: rgba(0, 0, 0, 0.4);
+}
+.dot {
+  color: grey;
+  font-size: 18px;
+  vertical-align: middle;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+.level {
+  vertical-align: middle;
+  margin-left: 15px;
+  margin-right: 5px;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: 0.005em;
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.7);
+}
