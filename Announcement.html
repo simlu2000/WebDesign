@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your announce</title>
+
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+    <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sora:300,400,500,700&display=swap">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/material-components-web/4.0.0/material-components-web.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="style/button.css">
+    <link rel="stylesheet" href="style/profile.css">
+    <link rel="stylesheet" href="style/card-applicant.css">
+    <link rel="stylesheet" href="style/filter.css">
+    <link rel="stylesheet" href="style/style.css">
+    <link href="home/contact_us.css" rel="stylesheet">
+    <link href="home/navbar.css" rel="stylesheet">
+    <link href="home/navbar_profile.css" rel="stylesheet">
+
+    <script src="https://unpkg.com/material-components-web@10.0.0/dist/material-components-web.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+</head>
+
+<body>
+    <header class="navbar">
+        <div class="header-left">
+            <img class="logo" src="img/Logo.png" />
+            <div class="en_it">
+                <a class="en">En</a>
+                <a class="it">IT</a>
+            </div>
+        </div>
+        <div class="header-right">
+            <div class="header-page">
+                <a class="pointer option" href="home/homepage.html">Home</a>
+                <a class="pointer option" href="home/about.html">About</a>
+                <a class="pointer option" href="Recruiters.html">Recruiters</a>
+                <a class="pointer option" href="Jobs.html">Applicants</a>
+                <a class="pointer option" href="home/contact_us.html">
+                    <nobr>Contact us</nobr>
+                </a>
+            </div>
+
+            <div class="profile">
+                <img id="profile_image" class="image_profile" src="img/Twitter_logo.jpg">
+                <div style="display: flex; align-items: center; ">
+                    <span class="name_profile"> Twitter</span>
+                    <button id="expandButton" class="dropbtn material-symbols-outlined"
+                        onclick="toggleDropdown()">expand_more</button>
+                </div>
+            </div>
+        </div>
+        <div id="myDropdown" class="dropdown-content">
+            <div class="profile-image-name">
+                <img src="img/Twitter_logo.jpg" alt="user_profile" class="profile-image">
+                <div>Twitter</div>
+            </div>
+            <div class="dropdown-contents">
+                <a href="Profile.html">CV</a>
+                <a href="#preferences">Preferences</a>
+                <a href="#settings">Settings</a>
+                <hr style="width: 100%; margin: 0px;">
+                <a href="home/homepage.html">Sign out</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="mdc-layout-grid left_grid">
+        <div class="mdc-layout-grid__inner content-grid">
+            <div class="mdc-layout-grid__cell--span-12 " style="font-weight: 600;font-size: 20px; margin-bottom: 15px;">
+                Menu</div>
+            <div class="mdc-layout-grid__cell--span-12">
+                <hr style="width: 100%; margin: 0px;">
+            </div>
+            <div class="mdc-layout-grid__cell--span-12" style="font-size: 16px; font-weight: 400; margin-top: 20px;">
+                Jobs tags</div>
+            <div class="mdc-layout-grid__cell--span-12 element"> Job Information</div>
+            <div class="mdc-layout-grid__cell--span-12">
+                <hr style="width: 100%; margin-top: 20px;">
+            </div>
+
+            <div class="progress-circle" style="margin-left: 20px;">
+                <svg class="noprogress-circle__fill" style="text-align: center;">
+                    <circle cx="50%" cy="50%" r="50"></circle>
+                </svg>
+                <svg class="progress-circle__fill">
+                    <circle cx="50%" cy="50%" r="50"></circle>
+                </svg>
+                <div class="progress-circle__text" style="text-align: center; font-size: 18px;"></div>
+            </div>
+
+        </div>
+        <h2 id="compl" class="mdc-layout-grid__cell--span-12"
+            style="font-size: 18px; font-weight: 400; margin-top: -10px; align-items: center; text-align: center;">
+            Completion Progress</h2>
+        <h4 id="compl2" class="mdc-layout-grid__cell--span-12 element" style="text-align: center;">Completion Progress
+            </h2>
+    </div>
+    </div>
+
+    <div class="main">
+        <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-10-desktop">
+            <!--Barra di ricerca-->
+            <div class="searchbar">
+                <div id="SearchArea" class="search-area mdc-layout-grid__cell">
+                    <form id="search-form" class="search">
+                        <i class="material-icons search-icon">search</i>
+                        <input id="search-input" type="text" class="search-input" style="width: 400px;"
+                            placeholder="Search applicant" required>
+                    </form>
+                </div>
+            </div>
+
+            <div class="card-container-wrapper">
+                <div class="card-container">
+                    <!-- Prima card -->
+                    <div class="mdc-card smallCard ">
+                        <div class="mdc-card__content">
+                            <!-- Contenuto della prima card -->
+                            <div class="cad-profile">
+                                <div class="profile-image-name">
+                                    <img src="" alt="ImgProfilo" id="ImgProfilo">
+                                </div>
+                                <div class="card-content">
+                                    <div class="logo-linkedin-name">
+                                        <img src="img/logo_linkedin.svg" alt="logo_linkedin" class="logo-linkedin"
+                                            style="float:right;  padding-left: 15px;  padding-right: 5px; margin-top: 27px;">
+                                    </div>
+                                    <div class="logo-google-name">
+
+                                        <img src="img/logo_google.svg" alt="logo_google" class="logo-google"
+                                            style="float:right ;margin-top: 27px;">
+                                    </div>
+                                    <h3 id="Fullname"></h3>
+                                    <p id="Email"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Seconda card -->
+                    <div class="mdc-card smallCard">
+                        <div class="mdc-card__content">
+                            <div class="card-container">
+                                <div class="card-content">
+                                    <!-- Contenuto della seconda card -->
+                                    <h3>Jobs tags</h3>
+                                    <button class="button-edit Edit" id="bttEdit2">Edit</button>
+                                    <div class="input-row">
+                                        <div class="input-container">
+                                            <img src="img/Ellipse 47.svg" alt="Icona" class="input-icon">
+                                            <input class="inputProfile" type="text" id="EducationLevel"
+                                                placeholder="Education Level*" value="">
+                                        </div>
+                                        <div class="input-container">
+                                            <img src="img/Ellipse 47.svg" alt="Icona" class="input-icon">
+                                            <input class="inputProfile" type="text" id="WorkExperience"
+                                                placeholder="Work experience*" value="">
+                                        </div>
+                                    </div>
+                                    <div class="input-row">
+                                        <div class="input-container">
+                                            <img src="img/Ellipse 47.svg" alt="Icona" class="input-icon">
+                                            <input class="inputProfile" type="text" id="Duration" value=""
+                                                placeholder="Duration*">
+                                        </div>
+
+                                        <div class="input-container">
+                                            <img src="img/Ellipse 47.svg" alt="Icona" class="input-icon">
+                                            <select name="salary" id="Salary" class="inputProfile">
+                                                <option value=""></option>
+                                                <option value="€ 0 - €10000">€ 0 - €10000</option>
+                                                <option value="€ 10000 - €20000">€ 10000 - €20000</option>
+                                                <option value="€ 20000 - €40000">€ 20000 - €40000</option>
+                                                <option value="€ 40000 & More">€ 40000 & More</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="input-row">
+                                        <div class="input-container">
+                                            <img src="img/Ellipse 47.svg" alt="Icona" class="input-icon">
+                                            <select name="Language" id="Language" class="inputProfile">
+                                                <option value=""></option>
+                                                <option value="Italian">Italian</option>
+                                                <option value="English">English</option>
+                                                <option value="German">German</option>
+                                                <option value="Spanish">Spanish</option>
+                                                <option value="French">French</option>
+                                                <option value="Russian">Russian</option>
+                                                <option value="Chinese">Chinese</option>
+                                            </select>
+                                        </div>
+                                        <div class="input-container">
+                                            <img src="img/Ellipse 47.svg" alt="Icona" class="input-icon">
+                                            <input class="inputProfile" type="text" id="Other" value=""
+                                                placeholder="Other">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Terza card-->
+                    <div class="mdc-card smallCard">
+                        <div class="mdc-card__content">
+                            <div class="card-container">
+                                <div class="card-content">
+                                    <!-- Contenuto della seconda card -->
+                                    <h3>Jobs Information</h3>
+                                    <button class="button-edit Edit" id="bttEdit3">Edit</button>
+                                    <div class="input-row" style="margin-top: 30px; margin-left: -40px;">
+                                        <div class="input-container">
+                                            <select name="Location" id="Location" class="inputProfile">
+                                                <option value=""></option>
+                                                <option value="Milan"> Milan</option>
+                                                <option value="Rome"> Rome</option>
+                                                <option value="Beijing"> Beijing</option>
+                                                <option value="Miami"> Miami</option>
+                                                <option value="Shangai"> Shangai</option>
+                                                <option value="Tokyo"> Tokyo</option>
+                                                <option value="Others"> Others</option>
+                                            </select>
+                                        </div>
+                                        <div class="input-container">
+                                            <select name="JobType" id="JobType" class="inputProfile">
+                                                <option value=""></option>
+                                                <option value="Determined"> Determined</option>
+                                                <option value="Undetermined"> Undetermined</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <h3>About the role</h3>
+                                    <div class="text-container">
+                                        <div class="fix-input">
+                                            <textarea class="inputProfile fixed-textarea" id="AboutTheRole" value=""
+                                                placeholder="AboutTheRole" style="padding-bottom: 50px; overflow: hidden;"></textarea>
+                                        </div>
+                                    </div>
+                                    <h3>Responsabilities</h3>
+                                    <div class="text-container">
+                                        <div class="fix-input">
+                                            <textarea class="inputProfile fixed-textarea" id="Responsabilities" value=""
+                                                placeholder="Responsabilities"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--card per fare spazio-->
+                    <div class="mdc-card smallCard" style="opacity: 0;
+                    visibility: hidden;">
+                        <div class="mdc-card__content">
+                            <div class="card-container">
+                                <div class="card-content">
+                                    <h3>About me</h3>
+                                    <button class="button-edit" id="bttEdit10">Edit</button>
+                                    <div class="text-container">
+                                        <div class="fix-input">
+                                            <input type="text" id="AboutMe" class="inputProfile"
+                                                style="color: grey; margin-top: 15px;">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mdc-card smallCard" style="opacity: 0;
+                    visibility: hidden;">
+                        <div class="mdc-card__content">
+                            <div class="card-container">
+                                <div class="card-content">
+                                    <h3>About me</h3>
+                                    <button class="button-edit" id="bttEdit10">Edit</button>
+                                    <div class="text-container">
+                                        <div class="fix-input">
+                                            <input type="text" id="AboutMe" class="inputProfile"
+                                                style="color: grey; margin-top: 15px;">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mdc-card smallCard" style="opacity: 0;
+                    visibility: hidden;">
+                        <div class="mdc-card__content">
+                            <div class="card-container">
+                                <div class="card-content">
+                                    <h3>About me</h3>
+                                    <button class="button-edit" id="bttEdit10">Edit</button>
+                                    <div class="text-container">
+                                        <div class="fix-input">
+                                            <input type="text" id="AboutMe" class="inputProfile"
+                                                style="color: grey; margin-top: 15px;">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+                
+
+                <!-- Card a destra -->
+                <div class="card-container">
+                    <div class="mdc-card smallCard">
+                        <div class="card-content">
+                            <div class="active-positions">
+                            <h3>Profiles</h3>
+                            <div id="online_cv">
+                                <!-- Contenuto degli annunci -->
+                            </div>
+                            <div class="show-all-button">
+                                <button id="show-all-button" class="mdc-button mdc-button--outlined apply-button"
+                                    style=" top: 0.5px; width: calc(100% - 18px); right: 15px;"><span
+                                        class="mdc-button__ripple"></span><span class="mdc-button__label">Show
+                                        All</span></button>
+                                <button id="back-button" class="mdc-button mdc-button--outlined apply-button"
+                                    style=" top: 0.5px; width: calc(100% - 18px); right: 15px; display: none;"><span
+                                        class="mdc-button__ripple"></span><span
+                                        class="mdc-button__label">Back</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    <div id="user-cv"></div>
+    </div>
+
+    <script>
+        //DropDown
+        /* When the user clicks on the button,
+        toggle between hiding and showing the dropdown content */
+        function toggleDropdown() {
+            centerDropdown();
+            var dropdown = document.getElementById("myDropdown");
+            var expandButton = document.getElementById("expandButton");
+
+            if (dropdown.style.display === "flex") {
+                dropdown.style.display = "none";
+                expandButton.textContent = "expand_more";
+            } else {
+                dropdown.style.display = "flex";
+                expandButton.textContent = "expand_less";
+                dropdown.style.zIndex = "150";
+            }
+        }
+
+        function centerDropdown() {
+            let profileImage = document.getElementById("profile_image");
+            let dropdown = document.getElementById("myDropdown");
+
+            dropdown.style.left = (profileImage.getBoundingClientRect().x - (274 / 2 - 40) - 23) + "px";
+
+            console.log(dropdown.style.width);
+        }
+
+        window.addEventListener("resize", function () {
+            centerDropdown();
+        })
+
+        const apiKey = 'key5CWwwqAFfDQZQg';
+        const baseId = 'app3kmWOs6tcTwDXf';
+        const tableName = 'Company';
+        const emailToSearch = 'Twitter.Inc@gmail.com';
+        const apiUrl = `https://api.airtable.com/v0/${baseId}/${tableName}?api_key=${apiKey}&filterByFormula=SEARCH('${emailToSearch}',%20{Email})`;
+        var userID = "";
+
+        // Funzione per stampare i dati dell'utente nel div HTML
+        function printAnnuncio(data) {
+            const userDataCv = document.getElementById('user-cv');
+
+            if (data.length > 0) {
+                const user = data[0].fields;
+                userID = user.ID;
+
+                //CARD 1
+                var FullnameElement = document.getElementById('Fullname');
+                var EmailElement = document.getElementById('Email');
+
+                // Impostare il testo all'interno degli elementi <h3>
+                FullnameElement.textContent = user.Firstname + " " + user.Lastname;
+                EmailElement.textContent = user.Email;
+
+                var img = document.getElementById("ImgProfilo");
+                img.src = user.Logo[0].url;
+
+                //CARD 2
+                var edLevel = document.getElementById("EducationLevel");
+                edLevel.value = 'Education level: ' + user.EducationLevel;
+                edLevel.disabled = true;
+
+                var workExp = document.getElementById("WorkExperience");
+                if (user.WorkExperience === 1) {
+                    workExp.value = "Work experience: yes";
+                    workExp.disabled = true;
+                } else {
+                    workExp.value = "Work experience: no";
+                    workExp.disabled = true;
+                }
+
+                var duration = document.getElementById("Duration");
+                duration.value = 'Duration : ' + user.Duration;
+                duration.disabled = true;
+
+                var salary = document.getElementById("Salary");
+                salary.value = user.Salary;
+                salary.disabled = true;
+
+                var language = document.getElementById("Language");
+                language.value = user.Language;
+                language.disabled = true;
+
+                var other = document.getElementById("Other");
+                if (user.Other !== undefined)
+                    other.value = user.Other;
+                other.disabled = true;
+
+                //CARD 3
+                var location = document.getElementById("Location");
+                location.value = user.Location;
+                location.disabled = true;
+
+                var jobType = document.getElementById("JobType");
+                jobType.value = user.JobType;
+                jobType.disabled = true;
+
+                var about = document.getElementById("AboutTheRole");
+                about.value = user.AboutTheRole;
+                about.disabled = true;
+
+                var responsabilities = document.getElementById("Responsabilities");
+                responsabilities.value = user.Responsabilities;
+                responsabilities.disabled = true;
+
+            } else {
+                userDataCv.innerHTML = '<p>Errore durante ricerca curriculum</p>';
+            }
+        }
+
+        // Funzione per recuperare i dati dell'utente da Airtable e stamparli nel div user-cv
+        function fetchUserCv() {
+            fetch(apiUrl)
+                .then(response => response.json())
+                .then(data => {
+                    printAnnuncio(data.records);
+                })
+                .catch(error => {
+                    console.error('Si è verificato un errore durante la richiesta:', error);
+                });
+        }
+
+        // Chiamata alla funzione per recuperare i dati al caricamento della pagina
+        fetchUserCv();
+
+        //EDIT SCHEDA 2
+        var bttEdit2 = document.getElementById("bttEdit2");
+        bttEdit2.addEventListener("click", function () {
+            if (bttEdit2.innerText === "Edit") {
+                bttEdit2.innerText = "Finish";
+                var nome = document.getElementById("EducationLevel");
+                nome.disabled = false;
+                var cognome = document.getElementById("WorkExperience");
+                cognome.disabled = false;
+                var email = document.getElementById("Duration");
+                email.disabled = false;
+                var domicile = document.getElementById("Salary");
+                domicile.disabled = false;
+                var date = document.getElementById("Language");
+                date.disabled = false;
+                var telephone = document.getElementById("Other");
+                telephone.disabled = false;
+            }
+            else {
+                bttEdit2.innerText = "Edit";
+                var nome = document.getElementById("EducationLevel");
+                nome.disabled = true;
+                var cognome = document.getElementById("WorkExperience");
+                cognome.disabled = true;
+                var email = document.getElementById("Duration");
+                email.disabled = true;
+                var domicile = document.getElementById("Salary");
+                domicile.disabled = true;
+                var date = document.getElementById("Language");
+                date.disabled = true;
+                var telephone = document.getElementById("Other");
+                telephone.disabled = true;
+            }
+        });
+
+        //EDIT SCHEDA 3
+        var bttEdit3 = document.getElementById("bttEdit3");
+        bttEdit3.addEventListener("click", function () {
+            if (bttEdit3.innerText === "Edit") {
+                bttEdit3.innerText = "Finish";
+                var location = document.getElementById("Location");
+                location.disabled = false;
+                var jobType = document.getElementById("JobType");
+                jobType.disabled = false;
+                var aboutTherole = document.getElementById("AboutTheRole");
+                aboutTherole.disabled = false;
+                var responsabilities = document.getElementById("Responsabilities");
+                responsabilities.disabled = false;
+            }
+            else {
+                bttEdit3.innerText = "Edit";
+                var location = document.getElementById("Location");
+                location.disabled = true;
+                var jobType = document.getElementById("JobType");
+                jobType.disabled = true;
+                var aboutTherole = document.getElementById("AboutTheRole");
+                aboutTherole.disabled = true;
+                var responsabilities = document.getElementById("Responsabilities");
+                responsabilities.disabled = true;
+            }
+        });
+
+        document.getElementById("bttEdit2").addEventListener("click", function () {
+            if (document.getElementById("bttEdit2").innerText === "Edit")
+                updateAirtable();
+        });
+
+        document.getElementById("bttEdit3").addEventListener("click", function () {
+            if (document.getElementById("bttEdit3").innerText === "Edit")
+                updateAirtable();
+        });
+
+        //FUNZIONE PER AGGIORNARE I DATI SU AIRTABLE
+        function updateAirtable() {
+            //PROBLEMA CON DOMICILE
+            var updatedFields = {
+                //SCHEDA 2
+                'EducationLevel': document.getElementById('EducationLevel').value,
+                'WorkExperience': document.getElementById('WorkExperience').value,
+                'Duration': document.getElementById('Duration').value,
+                'Salary': document.getElementById('Salary').value,
+                'Language': document.getElementById('Language').value,
+                'Other': document.getElementById('Other').value,
+
+                //SCHEDA3
+                'Location': document.getElementById('Location').value,
+                'JobType': document.getElementById('JobType').value,
+                'AboutTheRole': document.getElementById('AboutTheRole').value,
+                'Responsabilities': document.getElementById('Responsabilities').value,
+            };
+
+            fetch(`https://api.airtable.com/v0/${baseId}/${tableName}?api_key=${apiKey}&filterByFormula=SEARCH('${emailToSearch}', %20{Email})`)
+                .then(response => response.json())
+                .then(data => {
+                    const records = data.records;
+                    if (records.length > 0) {
+                        const recordId = records[0].id;
+
+                        // Update the record
+                        return fetch(`https://api.airtable.com/v0/${baseId}/${tableName}/${recordId}`, {
+                            method: 'PATCH',
+                            headers: {
+                                Authorization: `Bearer ${apiKey}`,
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify({ fields: updatedFields })
+                        });
+                    } else {
+                        throw new Error('No matching records found.');
+                    }
+                })
+                .then(response => response.json())
+                .then(updatedRecord => {
+                    console.log('Record updated:', updatedRecord);
+                })
+                .catch(error => {
+                    console.error('Error updating record:', error);
+                });
+        }
+
+
+        //Stampa annunci per Activeposition
+        function printProfiles(profiles, showAllClicked) {
+            const jobsAnnouncements = document.getElementById('online_cv');
+            const maxVisibleProfiles = 3;
+
+            // Rimuovi tutti i profili esistenti
+            jobsAnnouncements.innerHTML = '';
+
+            // Determina il numero massimo di profili da visualizzare
+            const visibleProfilesCount = showAllClicked ? profiles.length : maxVisibleProfiles;
+
+            // Itera attraverso i profili e crea gli elementi HTML corrispondenti
+            for (let i = 0; i < visibleProfilesCount; i++) {
+                const profile = profiles[i];
+                const profileContainer = document.createElement('div');
+                profileContainer.classList.add('AllExperience_template');
+
+                const profileImage = document.createElement('img');
+                profileImage.src = profile.fields.Logo[0].url; // Assumi che l'immagine sia un URL nel campo "image" di Airtable
+                profileImage.classList.add('left-image','profile-img');
+                profileContainer.appendChild(profileImage);
+
+                var textContainer = document.createElement('div');
+                textContainer.classList.add('text-container');
+
+
+                const profileFirstname = document.createElement('input');
+                var name = profile.fields.Firstname + " " + profile.fields.Lastname;
+                profileFirstname.type="text";
+
+                profileFirstname.value = name; // Assumi che il nome sia nel campo "name" di Airtable
+                profileFirstname.classList.add('inputProfile');
+                //profileContainer.appendChild(profileFirstname);
+                textContainer.appendChild(profileFirstname);
+
+                var inputContainer = document.createElement('div');
+                inputContainer.classList.add('input_container');
+
+                const profileOccupation = document.createElement('input');
+                profileOccupation.classList.add('inputProfile');
+                profileOccupation.type = 'text';
+                profileOccupation.classList.add('grey');
+                profileOccupation.value = profile.fields.Occupation; // Assumi che il nome sia nel campo "name" di Airtable
+                //profileContainer.appendChild(profileOccupation);
+                inputContainer.appendChild(profileOccupation);
+
+                // Aggiungi il pulsante "Contact"
+                var ContactBotton = document.createElement('button');
+                ContactBotton.id = 'view-details-btt';
+                ContactBotton.classList.add('mdc-button');
+                ContactBotton.innerHTML = '<button id="apply-now-btt" class="mdc-button mdc-button--outlined apply-button" style="margin-left:-20px"><span class="mdc-button__ripple"></span><span class="mdc-button__label">Contact    </span></button>';
+                inputContainer.appendChild(ContactBotton);
+
+                
+                textContainer.appendChild(inputContainer);
+                profileContainer.appendChild(textContainer);
+
+                
+        
+                jobsAnnouncements.appendChild(profileContainer);
+
+                var hrElement = document.createElement('hr');
+                profileContainer.insertAdjacentElement('afterend', hrElement);
+                
+            }
+
+            // Aggiungi il pulsante "Show All" solo se ci sono più di 3 profili
+            if (profiles.length > maxVisibleProfiles) {
+                const showAllButton = document.getElementById('show-all-button');
+                showAllButton.style.display = showAllClicked ? 'none' : 'block';
+            }
+        }
+
+        // Funzione per tornare alla visualizzazione con 3 profili
+        function goBackToLimitedView(profiles) {
+            const backButton = document.getElementById('back-button');
+            backButton.style.display = 'none'; // Nascondi il pulsante "Back"
+
+            printProfiles(profiles, false); // Stampa solo 3 profili
+        }
+
+        // URL dell'API di Airtable per la tua tabella
+        const apiUrlW = 'https://api.airtable.com/v0/app3kmWOs6tcTwDXf/Workers?api_key=key5CWwwqAFfDQZQg';
+
+        // Effettua la richiesta API a Airtable
+        fetch(apiUrlW)
+            .then(response => response.json())
+            .then(data => {
+                const profiles = data.records;
+                printProfiles(profiles, false); // Stampa inizialmente solo 3 profili
+
+                // Pulsante "Show All"
+                const showAllButton = document.getElementById('show-all-button');
+                showAllButton.addEventListener('click', function () {
+                    printProfiles(profiles, true); // Stampa tutti i profili quando viene cliccato "Show All"
+                    showAllButton.style.display = 'none'; // Nascondi il pulsante "Show All"
+
+                    const backButton = document.getElementById('back-button');
+                    backButton.style.display = 'block'; // Mostra il pulsante "Back"
+                });
+
+                // Pulsante "Back"
+                const backButton = document.getElementById('back-button');
+                backButton.addEventListener('click', function () {
+                    goBackToLimitedView(profiles); // Torna alla visualizzazione con 3 profili
+                });
+            })
+            .catch(error => {
+                console.error('Si è verificato un errore durante la richiesta:', error);
+            });
+
+
+        //GESTIONE BARRA DI RICERCA
+        var searchInput = document.getElementById("search-input");
+
+        searchInput.addEventListener("input", function (event) {
+            var searchValue = event.target.value;
+
+            if (searchValue !== "")
+                fetchDataSearch(searchValue);
+        });
+
+        //RICERCA PER PROFESSIONE
+        function fetchDataSearch(input) {
+            // Effettua una chiamata AJAX per recuperare gli annunci di lavoro in base al CompanyType
+            axios.get(apiUrlW, {
+                params: {
+                    filterByFormula: `OR(FIND('${input}', Occupation) > 0)`
+                }
+            })
+                .then(function (response) {
+                    printProfiles(response.data.records);
+                })
+                .catch(function (error) {
+                    console.error("Errore nella richiesta AJAX:", error);
+                });
+        }
+
+        //CALCOLO PERCENTUALE
+        function calculateCompletionPercentage(data) {
+            const totalFields = 20; // Numero totale di campi nel profilo utente (adattalo alle tue esigenze)
+            let completedFields = 0;
+
+            if (data.Company) {
+                completedFields++;
+            }
+            if (data.CompanyType) {
+                completedFields++;
+            }
+            if (data.Location) {
+                completedFields++;
+            }
+            if (data.Industry) {
+                completedFields++;
+            }
+            if (data.Salary) {
+                completedFields++;
+            }
+            if (data.Telephone) {
+                completedFields++;
+            }
+            if (data.Opportunities) {
+                completedFields++;
+            }
+            if (data.Description) {
+                completedFields++;
+            }
+            if (data.Title) {
+                completedFields++;
+            }
+            if (data.JobType) {
+                completedFields++;
+            }
+            if (data.Role) {
+                completedFields++;
+            }
+            if (data.Responsabilities) {
+                completedFields++;
+            }
+            if (data.AboutTheRole) {
+                completedFields++;
+            }
+            var skills1 = 'Required skills and qualifications'
+            if (data.skills1) {
+                completedFields++;
+            }
+            var skills2 = 'Preferred skills and qualifications'
+            if (data.skills2) {
+                completedFields++;
+            }
+            if (data.Logo) {
+                completedFields++;
+            }
+            if (data.EducationLevel) {
+                completedFields++;
+            }
+            if (data.WorkExperience) {
+                completedFields++;
+            }
+            if (data.Duration) {
+                completedFields++;
+            }
+            if (data.Other) {
+                completedFields++;
+            }
+
+            // Calcola la percentuale di completamento
+            const completionPercentuage = (completedFields / totalFields) * 100;
+            console.log(completionPercentuage.toFixed(2));
+            return completionPercentuage.toFixed(2); // Restituisce la percentuale con due decimali
+        }
+        // Funzione per impostare il riempimento del cerchio in base alla percentuale
+        function setCircleProgress(percent) {
+            var circle = document.querySelector('.progress-circle__fill circle');
+            var radius = circle.r.baseVal.value;
+            var circumference = 2 * Math.PI * radius;
+            var offset = circumference - (percent / 100) * circumference;
+
+            circle.style.strokeDasharray = circumference;
+            circle.style.strokeDashoffset = offset;
+
+            document.querySelector('.progress-circle__text').textContent = percent + '%';
+        }
+
+        const apikey = 'key5CWwwqAFfDQZQg';
+        const base = 'app3kmWOs6tcTwDXf';
+        const table = 'Company';
+
+        // Funzione per ottenere i dati da Airtable e calcolare la percentuale di completamento per l'utente specifico
+        function fetchProfileData(email) {
+            const progressCircle = document.querySelector('.progress-circle');
+            const progressFill = progressCircle.querySelector('.progress-circle__fill');
+            const progressText = progressCircle.querySelector('.progress-circle__text');
+
+            const apiUrlC = `https://api.airtable.com/v0/${base}/${table}?api_key=${apikey}&filterByFormula=Email%3D"${email}"`;
+
+            fetch(apiUrlC)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.records.length > 0) {
+                        const profileData = data.records[0].fields;
+                        const completionPercentage = calculateCompletionPercentage(profileData);
+
+                        // Calcola l'offset in base alla percentuale calcolata
+                        const radius = progressFill.querySelector('circle').r.baseVal.value;
+                        const circumference = 2 * Math.PI * radius;
+                        const offset = circumference - completionPercentage / 100 * circumference;
+
+                        progressFill.style.strokeDashoffset = `${offset}px`;
+                        progressText.textContent = `${completionPercentage}%`;
+                        setCircleProgress(completionPercentage);
+                    } else {
+                        console.error(`Nessun utente trovato con l'email: ${email}`);
+                    }
+                })
+                .catch(error => {
+                    console.error('Si è verificato un errore durante la richiesta:', error);
+                });
+        }
+
+
+        // Chiamata alla funzione per ottenere i dati del profilo e calcolare la percentuale di completamento per l'utente specifico
+        fetchProfileData('Twitter.Inc@gmail.com');
+    </script>
+</body>
+
+</html>

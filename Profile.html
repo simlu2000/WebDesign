@@ -1,0 +1,1841 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+    <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
+    <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sora:300,400,500,700&display=swap">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/material-components-web/4.0.0/material-components-web.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script src="https://unpkg.com/material-components-web@10.0.0/dist/material-components-web.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+
+    <title>Your Profile</title>
+
+    <!-- <link href="style/profile.css" rel="stylesheet">
+    <link href="home/navbar.css" rel="stylesheet">
+    <link href="home/navbar_profile.css" rel="stylesheet">
+    <link rel="stylesheet" href="home/style.css">
+    <link rel="stylesheet" href="home/contact_us.css"> -->
+    <link rel="stylesheet" href="style/button.css">
+    <link rel="stylesheet" href="style/profile.css">
+    <link rel="stylesheet" href="style/card-applicant.css">
+    <link rel="stylesheet" href="style/filter.css">
+    <link rel="stylesheet" href="style/style.css">
+    <link href="home/contact_us.css" rel="stylesheet">
+    <link href="home/navbar.css" rel="stylesheet">
+    <link href="home/navbar_profile.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <header class="navbar">
+        <div class="header-left">
+            <img class="logo" src="img/Logo.png" />
+            <div class="en_it">
+                <a class="en">En</a>
+                <a class="it">IT</a>
+            </div>
+        </div>
+        <div class="header-right">
+            <div class="header-page">
+                <a class="pointer option" href="home/homepage.html">Home</a>
+                <a class="pointer option" href="home/about.html">About</a>
+                <a class="pointer option" href="Recruiters.html">Recruiters</a>
+                <a class="pointer option" href="Jobs.html">Applicants</a>
+                <a class="pointer option" href="home/contact_us.html">
+                    <nobr>Contact us</nobr>
+                </a>
+            </div>
+
+            <div class="profile">
+                <img id="profile_image" class="image_profile" src="img/image_profile.png">
+                <div style="display: flex; align-items: center; ">
+                    <span class="name_profile"> Alessio Bia</span>
+                    <button id="expandButton" class="dropbtn material-symbols-outlined"
+                        onclick="toggleDropdown()">expand_more</button>
+                </div>
+            </div>
+        </div>
+        <div id="myDropdown" class="dropdown-content">
+            <div class="profile-image-name">
+                <img src="img/image_profile.png" alt="user_profile" class="profile-image">
+                <div>Alessio Bia</div>
+            </div>
+            <div class="dropdown-contents">
+                <a href="Profile.html">Annuncio</a>
+                <a href="#preferences">Preferences</a>
+                <a href="#settings">Settings</a>
+                <hr style="width: 100%; margin: 0px;">
+                <a href="home/homepage.html">Sign out</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="mdc-layout-grid left_grid">
+        <div class="mdc-layout-grid__inner content-grid">
+            <div class="mdc-layout-grid__cell--span-12 " style="font-weight: 600;font-size: 20px; margin-bottom: 15px;">
+                Menu</div>
+            <div class="mdc-layout-grid__cell--span-12">
+                <hr style="width: 100%; margin: 0px;">
+            </div>
+            <div class="mdc-layout-grid__cell--span-12" style="font-size: 16px; font-weight: 400; margin-top: 20px;">
+                Personal Information</div>
+            <div class="mdc-layout-grid__cell--span-12 element"> <a class="left_links"
+                    href="#experience_link">Experience</a></div>
+            <div class="mdc-layout-grid__cell--span-12 element"> <a class="left_links"
+                    href="#education_link">Education</a></div>
+            <div class="mdc-layout-grid__cell--span-12 element">
+                <a class="left_links" href="#skills_card">Skills</a>
+            </div>
+            <div class="mdc-layout-grid__cell--span-12 element"> <a class="left_links"
+                    href="#software_link">Software</a></div>
+            <div class="mdc-layout-grid__cell--span-12 element"> <a class="left_links"
+                    href="#workshop_link">Workshop</a></div>
+            <div class="mdc-layout-grid__cell--span-12 element"> <a class="left_links"
+                    href="#workshop_link">Certification</a></div>
+            <div class="mdc-layout-grid__cell--span-12 element"> <a class="left_links"
+                    href="#workshop_link">Portfolio</a></div>
+            <div class="mdc-layout-grid__cell--span-12 element">
+                <a class="left_links" href="#workshop_link">About me</a>
+            </div>
+            <div class="mdc-layout-grid__cell--span-12">
+                <hr style="width: 100%; margin: 0px;">
+            </div>
+        </div>
+        <div class="progress-circle">
+            <svg class="noprogress-circle__fill">
+                <circle cx="50%" cy="50%" r="50"></circle>
+            </svg>
+            <svg class="progress-circle__fill">
+                <circle cx="50%" cy="50%" r="50"></circle>
+            </svg>
+            <div class="progress-circle__text"></div>
+        </div>
+        <h2 id="compl" class="mdc-layout-grid__cell--span-12"
+            style="font-size: 18px; font-weight: 400; margin-top: -20px; align-items: center; text-align: center;">
+            Completion Progress</h2>
+        <h4 id="compl2" class="mdc-layout-grid__cell--span-12 element" style="text-align: center;">Completion Progress
+            </h2>
+
+    </div>
+
+
+    <div class="main">
+        <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-10-desktop">
+            <!--Barra di ricerca-->
+            <div class="searchbar">
+                <div id="SearchArea" class="search-area mdc-layout-grid__cell">
+                    <form id="search-form" class="search">
+                        <i class="material-icons search-icon">search</i>
+                        <input id="search-input" type="text" class="search-input" style="width: 400px;"
+                            placeholder="Search jobs" required>
+                    </form>
+                </div>
+            </div>
+
+            <div class="card-container-wrapper">
+                <div class="card-container">
+                    <!-- Prima card -->
+                    <div class="mdc-card smallCard ">
+                        <div class="mdc-card__content">
+                            <!-- Contenuto della prima card -->
+                            <div class="cad-profile">
+                                <div class="profile-image-name">
+                                    <img src="" alt="ImgProfilo" id="ImgProfilo">
+                                </div>
+                                <div class="card-content">
+                                    <div class="logo-linkedin-name">
+                                        <img src="img/logo_linkedin.svg" alt="logo_linkedin" class="logo-linkedin"
+                                            style="float:right;  padding-left: 15px;  padding-right: 5px; margin-top: 27px;">
+                                    </div>
+                                    <div class="logo-google-name">
+
+                                        <img src="img/logo_google.svg" alt="logo_google" class="logo-google"
+                                            style="float:right ;margin-top: 27px;">
+                                    </div>
+                                    <h3 id="Fullname"></h3>
+                                    <p id="Email"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Seconda card -->
+                    <div class="mdc-card smallCard">
+                        <div class="mdc-card__content">
+                            <div class="card-container">
+                                <div class="card-content">
+                                    <!-- Contenuto della seconda card -->
+                                    <h3>All Personal Information</h3>
+                                    <button class="button-edit Edit" id="bttEdit2">Edit</button>
+                                    <div class="input-row">
+                                        <div class="input-container">
+                                            <img src="img/Ellipse 47.svg" alt="Icona" class="input-icon">
+                                            <input class="inputProfile" type="text" id="Firstname"
+                                                placeholder="First Name" value="">
+                                        </div>
+                                        <div class="input-container">
+                                            <img src="img/Ellipse 47.svg" alt="Icona" class="input-icon">
+                                            <input class="inputProfile" type="text" id="Lastname"
+                                                placeholder="Last Name" value="">
+                                        </div>
+                                    </div>
+                                    <div class="input-row">
+                                        <div class="input-container">
+                                            <img src="img/Ellipse 47.svg" alt="Icona" class="input-icon">
+                                            <input class="inputProfile" type="date" id="Date" value="">
+                                        </div>
+
+                                        <div class="input-container">
+                                            <img src="img/Ellipse 47.svg" alt="Icona" class="input-icon">
+                                            <select name="domicile" id="Domicile" class="inputProfile">
+                                                <option value=""></option>
+                                                <option value="Genoa, Italy">Genoa, Italy</option>
+                                                <option value="Milan, Italy">Milan, Italy</option>
+                                                <option value="Paris, France">Paris, France</option>
+                                                <option value="Miami, Usa"> Miami,Usa</option>
+                                                <option value="Beijing, China">Beijing, China</option>
+                                                <option value="Shangai, China">Shangai, China</option>
+                                                <option value="Tokyo, Japan">Tokyo, Japan</option>
+                                                <option value="London, England">London, England</option>
+                                                <option value="Moscow, Russia">Moscow, Russia</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="input-row">
+                                        <div class="input-container">
+                                            <img src="img/Ellipse 47.svg" alt="Icona" class="input-icon">
+                                            <input class="inputProfile" type="text" id="Telephone" value="">
+                                        </div>
+                                        <div class="input-container">
+                                            <img src="img/Ellipse 47.svg" alt="Icona" class="input-icon">
+                                            <input class="inputProfile" type="email" id="Email2" placeholder="Email"
+                                                value="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Terza card-->
+                    <div id="experience_link" class="mdc-card smallCard">
+                        <div class="mdc-card__content">
+                            <div class="card-container">
+                                <div class="card-content">
+                                    <h3>All Experiences</h3>
+                                    <button class="button-edit Edit" id="bttEdit3">Edit</button>
+                                    <div class="AllExperience_template">
+                                        <img id="Logo1" class="left-image">
+                                        <div class="text-container">
+                                            <input class="inputProfile" type="text" id="Name1">
+                                            <div class="input_container">
+                                                <input class="inputProfile" type="text" id="Task1"><span
+                                                    class="dot">.</span>
+                                                <input class="DataStart inputProfile" type="text" id="DataStart1"><span
+                                                    class="dot">.</span>
+                                                <input type="text" id="DataEnd1" class="DataEnd inputProfile">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <hr class="horizontal-line">
+                                    <div class="AllExperience_template">
+                                        <img id="Logo2" class="left-image">
+                                        <div class="text-container">
+                                            <input class="inputProfile" type="text" id="Name2">
+                                            <div class="input_container">
+                                                <input class="inputProfile" type="text" id="Task2"><span
+                                                    class="dot">.</span>
+                                                <input class="DataStart inputProfile" type="text" id="DataStart2"><span
+                                                    class="dot">.</span>
+                                                <input type="text" id="DataEnd2" class="DataEnd inputProfile">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <hr class="horizontal-line">
+                                    <div class="AllExperience_template">
+                                        <img id="Logo3" class="left-image">
+                                        <div class="text-container">
+                                            <input class="inputProfile" type="text" id="Name3">
+                                            <div class="input_container">
+                                                <input class="inputProfile" type="text" id="Task3"><span
+                                                    class="dot">.</span>
+                                                <input class="DataStart inputProfile" type="text" id="DataStart3"><span
+                                                    class="dot">.</span>
+                                                <input type="text" id="DataEnd3" class="DataEnd inputProfile">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--
+                                    <hr class="horizontal-line">
+                                    <div class="AllExperience_template">
+                                        <img id="Logo4" class="left-image">
+                                        <div class="text-container">
+                                            <input class= "inputProfile" type="text" id="Name4">
+                                            <div class ="input_container">
+                                                <input class= "inputProfile" type="text" id="Task4"><span class="dot">·</span>
+                                                <input class="DataStart inputProfile" type="text" id="DataStart4"><span class="dot">·</span>
+                                                <input type="text" id="DataEnd4" class="DataEnd inputProfile">
+                                            </div>    
+                                        </div>  
+                                    </div>
+                                    -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Quarta card-->
+                    <div id="education_link" class="mdc-card smallCard">
+                        <div class="mdc-card__content">
+                            <div class="card-container">
+                                <div class="card-content">
+                                    <h3>Education</h3>
+                                    <button class="button-edit Edit" id="bttEdit4">Edit</button>
+                                    <div class="AllExperience_template">
+                                        <div class="text-container">
+                                            <div class="input_container">
+                                                <div class="fix-input">
+                                                    <input type="text" id="Education1" class="inputProfile">
+                                                    <input class="DataStart inputProfile" type="text"
+                                                        id="DateStartEd1"><span class="dot">.</span>
+                                                    <input type="text" id="DateEndEd1" class="DataEnd inputProfile">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <hr class="horizontal-line">
+
+                                    <div class="AllExperience_template">
+                                        <div class="text-container">
+                                            <div class="input_container">
+                                                <div class="fix-input">
+                                                    <input type="text" id="Education2" class="inputProfile">
+                                                    <input class="DataStart inputProfile" type="text"
+                                                        id="DateStartEd2"><span class="dot">.</span>
+                                                    <input type="text" id="DateEndEd2" class="DataEnd inputProfile">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <hr class="horizontal-line">
+
+                                    <div class="AllExperience_template">
+                                        <div class="text-container">
+                                            <div class="input_container">
+                                                <div class="fix-input">
+                                                    <input type="text" id="Education3" class="inputProfile">
+                                                    <input class="DataStart inputProfile" type="text"
+                                                        id="DateStartEd3"><span class="dot">.</span>
+                                                    <input type="text" id="DateEndEd3" class="DataEnd inputProfile">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- 
+                                    <hr class="horizontal-line">
+                                    <input type="text" id="Education4"><span class="dot">·</span>
+                                    <input class="DataStart" type="text" id="DateStartEd4"><span class="dot">·</span>
+                                    <input type="text" id="DateEndEd4" class="DataEnd">
+                                    -->
+                                    <h4>Language</h4>
+
+                                    <div class="Language_template">
+                                        <select name="Language1" id="Language1" class="inputProfile">
+                                            <option value=" "> </option>
+                                            <option value="Chinese">Chinese</option>
+                                            <option value="English">English</option>
+                                            <option value="French">French</option>
+                                            <option value="German">German</option>
+                                            <option value="Italian">Italian</option>
+                                            <option value="Russian">Russian</option>
+                                            <option value="Spanish">Spanish</option>
+                                        </select>
+                                        <p>Written level:</p>
+                                        <select name="WrittenLev1" id="WrittenLev1" class="inputProfile">
+                                            <option value=" "> </option>
+                                            <option value="A1">A1</option>
+                                            <option value="A2">A2</option>
+                                            <option value="B1">B1</option>
+                                            <option value="B2">B2</option>
+                                            <option value="C1">C1</option>
+                                            <option value="C2">C2</option>
+                                            <option value="Mothertongue">Mother tongue</option>
+                                        </select>
+                                        <p>Spoken level:</p>
+                                        <select name="SpokenLev1" id="SpokenLev1" class="inputProfile">
+                                            <option value=" "> </option>
+                                            <option value="A1">A1</option>
+                                            <option value="A2">A2</option>
+                                            <option value="B1">B1</option>
+                                            <option value="B2">B2</option>
+                                            <option value="C1">C1</option>
+                                            <option value="C2">C2</option>
+                                            <option value="Mothertongue">Mother tongue</option>
+                                        </select>
+                                    </div>
+
+                                    <hr class="horizontal-line">
+                                    <div class="Language_template">
+                                        <select name="Language2" id="Language2" class="inputProfile">
+                                            <option value=" "> </option>
+                                            <option value="Chinese">Chinese</option>
+                                            <option value="English">English</option>
+                                            <option value="French">French</option>
+                                            <option value="German">German</option>
+                                            <option value="Italian">Italian</option>
+                                            <option value="Russian">Russian</option>
+                                            <option value="Spanish">Spanish</option>
+                                        </select>
+
+                                        <p>Written level:</p>
+                                        <select name="WrittenLev2" id="WrittenLev2" class="inputProfile">
+                                            <option value=" "> </option>
+                                            <option value="A1">A1</option>
+                                            <option value="A2">A2</option>
+                                            <option value="B1">B1</option>
+                                            <option value="B2">B2</option>
+                                            <option value="C1">C1</option>
+                                            <option value="C2">C2</option>
+                                            <option value="Mothertongue">Mother tongue</option>
+                                        </select>
+                                        <p>Spoken level:</p>
+                                        <select name="SpokenLev2" id="SpokenLev2" class="inputProfile">
+                                            <option value=" "> </option>
+                                            <option value="A1">A1</option>
+                                            <option value="A2">A2</option>
+                                            <option value="B1">B1</option>
+                                            <option value="B2">B2</option>
+                                            <option value="C1">C1</option>
+                                            <option value="C2">C2</option>
+                                            <option value="Mothertongue">Mother tongue</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Quinta card-->
+                    <div id="skills_card" class="mdc-card smallCard">
+                        <div class="mdc-card__content">
+                            <div class="card-container">
+                                <div class="card-content">
+                                    <h3>Skills</h3>
+                                    <button class="button-edit Edit" id="bttEdit5">Edit</button>
+                                    <div class="text-container">
+                                        <div class="fix-input">
+                                            <input type="text" id="Skills" class="inputProfile"
+                                                style="margin-top: 15px; color: grey;">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Sesta card-->
+                    <div id="software_link" class="mdc-card smallCard">
+                        <div class="mdc-card__content">
+                            <div class="card-container">
+                                <div class="card-content">
+                                    <h3>Software</h3>
+                                    <button class="button-edit" id="bttEdit6">Edit</button>
+                                    <div class="text-container">
+                                        <div class="fix-input">
+                                            <input type="text" id="Software" class="inputProfile"
+                                                style="margin-top: 15px; color: grey;">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Settima card-->
+                    <div id="workshop_link" class="mdc-card smallCard">
+                        <div class="mdc-card__content">
+                            <div class="card-container">
+                                <div class="card-content">
+                                    <h3>Workshop</h3>
+
+                                    <button class="button-edit" id="bttEdit7">Edit</button>
+                                    <div class="AllExperience_template">
+                                        <div class="text-container">
+                                            <div class="input_container">
+                                                <div class="fix-input">
+                                                    <input type="text" id="Workshop1" class="inputProfile">
+                                                    <input type="date" id="Workshop1Date" class="inputProfile">
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <hr class="horizontal-line">
+
+                                    <div class="AllExperience_template">
+                                        <div class="text-container">
+                                            <div class="input_container">
+                                                <div class="fix-input">
+                                                    <input type="text" id="Workshop2" class="inputProfile">
+                                                    <input type="date" id="Workshop2Date" class="inputProfile">
+                                                    <!--Solo per fare spazio-->
+                                                    <input type="text" id="DateEndEd2" class="DataEnd inputProfile"
+                                                        style="opacity: 0;
+                                                    visibility: hidden;">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <hr class="horizontal-line">
+
+                                    <div class="AllExperience_template">
+                                        <div class="text-container">
+                                            <div class="input_container">
+                                                <div class="fix-input">
+                                                    <input type="text" id="Workshop3" class="inputProfile">
+                                                    <input type="date" id="Workshop3Date" class="inputProfile">
+                                                    <!--Solo per fare spazio-->
+                                                    <input type="text" id="DateEndEd2" class="DataEnd inputProfile"
+                                                        style="opacity: 0;
+                                                    visibility: hidden;">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Ottava card-->
+                    <div id="certification_link" class="mdc-card smallCard">
+                        <div class="mdc-card__content">
+                            <div class="card-container">
+                                <div class="card-content">
+                                    <h3>Certifications</h3>
+                                    <button class="button-edit" id="bttEdit8">Edit</button>
+                                    <div class="text-container">
+                                        <div class="fix-input">
+                                            <input type="text" id="Certifications" class="inputProfile"
+                                                style="margin-top: 15px; color: grey;">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Nona card-->
+                    <div id="portfolio_link" class="mdc-card smallCard">
+                        <div class="mdc-card__content">
+                            <div class="card-container">
+                                <div class="card-content">
+                                    <h3>Portfolio</h3>
+                                    <button class="button-edit" id="bttEdit9">Edit</button>
+                                    <div class="input_container">
+                                        <div class="text-container">
+                                            <p
+                                                style="color: black; margin-left: 0px; font-size: 16px; margin-top: 15px;">
+                                                Link:</p>
+                                            <input type="text" id="Portfolio" class="inputProfile"
+                                                style="margin-top: 5px; ">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Decima card-->
+                    <div id="aboutme_link" class="mdc-card smallCard">
+                        <div class="mdc-card__content">
+                            <div class="card-container">
+                                <div class="card-content">
+                                    <h3>About me</h3>
+                                    <button class="button-edit" id="bttEdit10">Edit</button>
+                                    <div class="text-container">
+                                        <div class="fix-input">
+                                            <input type="text" id="AboutMe" class="inputProfile"
+                                                style="color: grey; margin-top: 15px;">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--card per fare spazio-->
+                    <div class="mdc-card smallCard" style="opacity: 0;
+                    visibility: hidden;">
+                        <div class="mdc-card__content">
+                            <div class="card-container">
+                                <div class="card-content">
+                                    <h3>About me</h3>
+                                    <button class="button-edit" id="bttEdit10">Edit</button>
+                                    <div class="text-container">
+                                        <div class="fix-input">
+                                            <input type="text" id="AboutMe" class="inputProfile"
+                                                style="color: grey; margin-top: 15px;">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card a destra-->
+                <div class="card-container">
+                    <div class="mdc-card smallCard">
+                        <div class="card-content">
+                            <div class="active-positions">
+                                <h3>Active Positions</h3>
+                                <div id="jobs-announcements">
+                                    <!-- Contenuto degli annunci -->
+                                </div>
+
+                                <div class="show-all-button">
+
+                                    <button id="back-button" class="mdc-button mdc-button--outlined apply-button" style=" top: 0.5px;
+                                        width: calc(100% - 18px); 
+                                        right:15px; display: none;"><span class="mdc-button__ripple"></span><span
+                                            class="mdc-button__label">Back</span></button>
+                                    <button style="opacity: 0;
+                                    visibility: hidden;"></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="user-cv"></div>
+
+    <!--<input type="submit" id="InvioModifiche"> -->
+    </div>
+    <script>
+
+
+        //DropDown
+        /* When the user clicks on the button,
+        toggle between hiding and showing the dropdown content */
+        function toggleDropdown() {
+            centerDropdown();
+            var dropdown = document.getElementById("myDropdown");
+            var expandButton = document.getElementById("expandButton");
+
+            if (dropdown.style.display === "flex") {
+                dropdown.style.display = "none";
+                expandButton.textContent = "expand_more";
+            } else {
+                dropdown.style.display = "flex";
+                expandButton.textContent = "expand_less";
+                dropdown.style.zIndex = "150";
+            }
+        }
+
+        function centerDropdown() {
+            let profileImage = document.getElementById("profile_image");
+            let dropdown = document.getElementById("myDropdown");
+
+            dropdown.style.left = (profileImage.getBoundingClientRect().x - (274 / 2) + 23) + "px";
+
+            console.log(dropdown.style.width);
+        }
+
+        window.addEventListener("resize", function () {
+            centerDropdown();
+        })
+
+        const apiKey = 'key5CWwwqAFfDQZQg';
+        const baseId = 'app3kmWOs6tcTwDXf';
+        const tableName = 'Workers';
+        const emailToSearch = 'alessio.bianchi@gmail.com';
+        const apiUrl = `https://api.airtable.com/v0/${baseId}/${tableName}?api_key=${apiKey}&filterByFormula=SEARCH('${emailToSearch}',%20{Email})`;
+        var userID = "";
+
+
+        //Stampa annunci per Activeposition
+        function printJobs(data) {
+            const jobsdata = document.getElementById('jobs-announcements');
+            const maxVisibleJobs = 3;
+            let visibleJobsCount = 0;
+            let showAllClicked = false;
+
+            while (jobsdata.firstChild)
+                jobsdata.removeChild(jobsdata.firstChild);
+
+            if (data.length > 0) {
+                data.forEach(function (record, index) {
+                    if (visibleJobsCount < maxVisibleJobs || showAllClicked) {
+                        const company = record.fields;
+                        // Crea l'elemento div per ogni annuncio
+                        var announcement = document.createElement('div');
+                        announcement.classList.add('AllExperience_template');
+
+                        // Aggiungi l'immagine del logo
+                        var logo = document.createElement('img');
+                        logo.id = 'Logoc' + record.id;
+                        logo.classList.add('left-image','profile-img');
+                        logo.src = company.Logo[0].url;
+                        announcement.appendChild(logo);
+
+                        // Aggiungi il container del testo
+                        var textContainer = document.createElement('div');
+                        textContainer.classList.add('text-container');
+
+                        // Aggiungi il titolo dell'annuncio come input disabilitato
+                        var titleInput = document.createElement('input');
+                        titleInput.classList.add('inputProfile');
+                        titleInput.type = 'text';
+                        titleInput.id = 'Title' + record.id;
+                        titleInput.value = company.Title;
+                        titleInput.disabled = true;
+                        textContainer.appendChild(titleInput);
+
+                        // Aggiungi il container dell'azienda e il pulsante "Apply now"
+                        var inputContainer = document.createElement('div');
+                        inputContainer.classList.add('input_container');
+
+                        // Aggiungi il nome dell'azienda come input disabilitato
+                        var companyInput = document.createElement('input');
+                        companyInput.classList.add('inputProfile');
+                        companyInput.type = 'text';
+                        companyInput.id = 'Company' + record.id;
+                        companyInput.value = company.Company;
+                        companyInput.disabled = true;
+                        inputContainer.appendChild(companyInput);
+
+                        // Aggiungi il pulsante "Apply now"
+                        var applyButton = document.createElement('button');
+                        applyButton.id = 'view-details-btt';
+                        applyButton.classList.add('mdc-button');
+                        applyButton.innerHTML = '<button id="apply-now-btt" class="mdc-button mdc-button--outlined apply-button" ><span class="mdc-button__ripple"></span><span class="mdc-button__label">Apply</span></button>';
+                        inputContainer.appendChild(applyButton);
+
+                        textContainer.appendChild(inputContainer);
+                        announcement.appendChild(textContainer);
+
+                        // Aggiungi l'annuncio al div "jobs-announcements"
+                        jobsdata.appendChild(announcement);
+
+                        //Aggiunta della linea di separazione dopo la div
+                        var hrElement = document.createElement('hr');
+                        announcement.insertAdjacentElement('afterend', hrElement);
+
+                        visibleJobsCount++;
+                    }
+                });
+
+                if (data.length > maxVisibleJobs) {
+                    var showAllButton = document.createElement('button');
+                    showAllButton.id = 'show-all-button';
+                    showAllButton.classList.add('mdc-button', 'show-all-button');
+                    showAllButton.innerHTML = '<button id="apply-now-btt" class="mdc-button mdc-button--outlined apply-button" style="width: 100%;" ><span class="mdc-button__ripple"></span><span class="mdc-button__label">Show All</span></button>';
+                    jobsdata.appendChild(showAllButton);
+
+                    showAllButton.addEventListener('click', function () {
+                        showAllClicked = true; // Imposta la flag a true quando l'utente preme "Show All"
+                        jobsdata.innerHTML = ''; // Rimuovi tutti gli annunci esistenti
+
+                        data.forEach(function (record) {
+                            const company = record.fields;
+
+                            // Crea l'elemento div per ogni annuncio
+                            var announcement = document.createElement('div');
+                            announcement.classList.add('AllExperience_template');
+
+                            // Aggiungi l'immagine del logo
+                            var logo = document.createElement('img');
+                            logo.id = 'Logoc' + record.id;
+                            logo.classList.add('left-image','profile-img');
+                            logo.src = company.Logo[0].url;
+                            announcement.appendChild(logo);
+
+                            // Aggiungi il container del testo
+                            var textContainer = document.createElement('div');
+                            textContainer.classList.add('text-container');
+
+                            // Aggiungi il titolo dell'annuncio come input disabilitato
+                            var titleInput = document.createElement('input');
+                            titleInput.classList.add('inputProfile');
+                            titleInput.type = 'text';
+                            titleInput.id = 'Title' + record.id;
+                            titleInput.value = company.Title;
+                            titleInput.disabled = true;
+                            textContainer.appendChild(titleInput);
+
+                            // Aggiungi il container dell'azienda e il pulsante "Apply now"
+                            var inputContainer = document.createElement('div');
+                            inputContainer.classList.add('input_container');
+
+                            // Aggiungi il nome dell'azienda come input disabilitato
+                            var companyInput = document.createElement('input');
+                            companyInput.classList.add('inputProfile');
+                            companyInput.type = 'text';
+                            companyInput.id = 'Company' + record.id;
+                            companyInput.value = company.Company;
+                            companyInput.disabled = true;
+                            inputContainer.appendChild(companyInput);
+
+                            // Aggiungi il pulsante "Apply now"
+                            var applyButton = document.createElement('button');
+                            applyButton.id = 'view-details-btt';
+                            applyButton.classList.add('mdc-button');
+                            applyButton.innerHTML = '<button id="apply-now-btt" class="mdc-button mdc-button--outlined apply-button"><span class="mdc-button__ripple"></span><span class="mdc-button__label">Apply</span></button>';
+                            inputContainer.appendChild(applyButton);
+
+                            textContainer.appendChild(inputContainer);
+                            announcement.appendChild(textContainer);
+
+                            // Aggiungi l'annuncio al div "jobs-announcements"
+                            jobsdata.appendChild(announcement);
+
+                            //Aggiunta della linea di separazione dopo la div
+                            var hrElement = document.createElement('hr');
+                            announcement.insertAdjacentElement('afterend', hrElement);
+                        });
+
+                        showAllButton.style.display = 'none'; // Nascondi il pulsante "Show All" dopo aver mostrato tutti gli annunci
+                        backButton.style.display = 'block'; // Mostra il pulsante "Back"
+
+                        // Aggiungi il testo "Active Positions" all'elemento con id "job-list"
+                        //var jobList = document.getElementById('job-list');
+                        //jobList.innerText = 'Active Positions';
+                    });
+                }
+            }
+        }
+
+        const tableName2 = 'Company';
+        const apiUrlJobs = `https://api.airtable.com/v0/${baseId}/${tableName2}?api_key=${apiKey}`;
+
+        function fetchJobsAnnouncements() {
+            fetch(apiUrlJobs)
+                .then(response => response.json())
+                .then(data => {
+                    printJobs(data.records);
+                })
+                .catch(error => {
+                    console.error('Si è verificato un errore durante la richiesta:', error);
+                });
+        }
+
+        const backButton = document.getElementById('back-button');
+        backButton.addEventListener('click', function () {
+            const jobsdata = document.getElementById('jobs-announcements');
+            jobsdata.innerHTML = ''; // Rimuovi tutti gli annunci
+
+            fetchJobsAnnouncements(); // Ricarica gli annunci iniziali
+
+            backButton.style.display = 'none'; // Nascondi il pulsante "Back" di nuovo
+        });
+
+        // Chiamata alla funzione per recuperare i dati al caricamento della pagina
+        fetchJobsAnnouncements();
+
+        // Funzione per stampare i dati dell'utente nel div HTML
+        function printUserCv(data) {
+            const userDataCv = document.getElementById('user-cv');
+
+            if (data.length > 0) {
+                const user = data[0].fields;
+                userID = user.ID;
+
+                //CARD 1
+                var FullnameElement = document.getElementById('Fullname');
+                var EmailElement = document.getElementById('Email');
+
+                // Impostare il testo all'interno degli elementi <h3>
+                FullnameElement.textContent = user.Firstname + " " + user.Lastname;
+                EmailElement.textContent = user.Email;
+
+                //CARD 2
+                var img = document.getElementById("ImgProfilo");
+                img.src = user.Logo[0].url;
+
+                var nome = document.getElementById("Firstname");
+                nome.value = user.Firstname;
+                nome.disabled = true;
+
+                var cognome = document.getElementById("Lastname");
+                cognome.value = user.Lastname;
+                cognome.disabled = true;
+
+                var email = document.getElementById("Email2");
+                email.value = user.Email;
+                email.disabled = true;
+
+                var domicile = document.getElementById("Domicile");
+                domicile.value = user.DomicileCV;
+                domicile.disabled = true;
+
+                var date = document.getElementById("Date");
+                date.value = user.DateOfBirth;
+                date.disabled = true;
+
+                var telephone = document.getElementById("Telephone");
+                telephone.value = user.Telephone;
+                telephone.disabled = true;
+
+                //CARD 3
+                //Esperienza 1
+                var logo1 = document.getElementById("Logo1");
+                logo1.src = user.CompanyIcon1[0].url;
+
+                var nameCompany1 = document.getElementById("Name1");
+                nameCompany1.value = user.WorkingExperience;
+                nameCompany1.disabled = true;
+
+                var task1 = document.getElementById("Task1");
+                task1.value = user.WhatYouDid;
+                task1.disabled = true;
+
+                var dateStart1 = document.getElementById("DataStart1");
+                dateStart1.value = user.StartDate;
+                dateStart1.disabled = true;
+
+                var dateEnd1 = document.getElementById("DataEnd1");
+                dateEnd1.value = user.EndDate;
+                dateEnd1.disabled = true;
+
+                if (user.NewWorkingExperience) {
+                    //Esperienza 2
+                    var logo2 = document.getElementById("Logo2");
+                    logo2.src = user.CompanyIcon2[0].url;
+
+                    var nameCompany2 = document.getElementById("Name2");
+                    nameCompany2.value = user.WorkingExperience2;
+                    nameCompany2.disabled = true;
+
+                    var task2 = document.getElementById("Task2");
+                    task2.value = user.WhatYouDid2;
+                    task2.disabled = true;
+
+                    var dateStart2 = document.getElementById("DataStart2");
+                    dateStart2.value = user.StartDate2;
+                    dateStart2.disabled = true;
+
+                    var dateEnd2 = document.getElementById("DataEnd2");
+                    dateEnd2.value = user.EndDate2;
+                    dateEnd2.disabled = true;
+                }
+
+                if (user.NewWorkingExperience2) {
+                    //Esperienza 3
+                    var logo3 = document.getElementById("Logo3");
+                    logo3.src = user.CompanyIcon3[0].url;
+
+                    var nameCompany3 = document.getElementById("Name3");
+                    nameCompany3.value = user.WorkingExperience3;
+                    nameCompany3.disabled = true;
+
+                    var task3 = document.getElementById("Task3");
+                    task3.value = user.WhatYouDid3;
+                    task3.disabled = true;
+
+                    var dateStart3 = document.getElementById("DataStart3");
+                    dateStart3.value = user.StartDate3;
+                    dateStart3.disabled = true;
+
+                    var dateEnd3 = document.getElementById("DataEnd3");
+                    dateEnd3.value = user.EndDate3;
+                    dateEnd3.disabled = true;
+                }
+                /*
+                if (user.NewWorkingExperience3) {
+                    //Esperienza 4
+
+                    var logo4 = document.getElementById("LogoCompany4");
+                    logo4.src = user.CompanyIcon4[0].url;
+
+                    var nameCompany4 = document.getElementById("NameCompany4");
+                    nameCompany4.value = user.WorkingExperience4;
+                    nameCompany4.disabled= true;
+
+                    var task4 = document.getElementById("TaskCompany4");
+                    task4.value = user.WhatYouDid4;
+                    task4.disabled= true;
+
+                    var dateStart4 = document.getElementById("DateStartCompany4");
+                    dateStart4.value = user.StartDate4;
+                    dateStart4.disabled= true;
+
+                    var dateEnd4 = document.getElementById("DateEndCompany4");
+                    dateEnd4.value = user.EndDate4;
+                    dateEnd4.disabled= true;
+                }*/
+
+                //CARD 4
+                //Educazione 1
+                var Ed1 = document.getElementById("Education1");
+                Ed1.value = user.Education;
+                Ed1.disabled = true;
+
+                var dateStartEd1 = document.getElementById("DateStartEd1");
+                dateStartEd1.value = user.StartEducation1;
+                dateStartEd1.disabled = true;
+
+                var dateEndEd1 = document.getElementById("DateEndEd1");
+                dateEndEd1.value = user.EndEducation1;
+                dateEndEd1.disabled = true;
+
+                //Educazione 2
+                if (user.NewEducation) {
+                    var Ed2 = document.getElementById("Education2");
+                    Ed2.value = user.Education2;
+                    Ed2.disabled = true;
+
+                    var dateStartEd2 = document.getElementById("DateStartEd2");
+                    dateStartEd2.value = user.StartEducation2;
+                    dateStartEd2.disabled = true;
+
+                    var dateEndEd2 = document.getElementById("DateEndEd2");
+                    dateEndEd2.value = user.EndEducation2;
+                    dateEndEd2.disabled = true;
+                }
+                //Educazione 3
+                if (user.NewEducation2) {
+                    var Ed3 = document.getElementById("Education3");
+                    Ed3.value = user.Education3;
+                    Ed3.disabled = true;
+
+                    var dateStartEd3 = document.getElementById("DateStartEd3");
+                    dateStartEd3.value = user.StartEducation3;
+                    dateStartEd3.disabled = true;
+
+                    var dateEndEd3 = document.getElementById("DateEndEd3");
+                    dateEndEd3.value = user.EndEducation3;
+                    dateEndEd3.disabled = true;
+                }
+                //Educazione 4
+                if (user.NewEducation3 === true) {
+                    var Ed4 = document.getElementById("Education4");
+                    Ed4.value = user.Education4;
+                    Ed4.disabled = true;
+
+                    var dateStartEd4 = document.getElementById("DateStartEd4");
+                    dateStartEd4.value = user.StartEducation4;
+                    dateStartEd4.disabled = true;
+
+                    var dateEndEd4 = document.getElementById("DateEndEd4");
+                    dateEndEd4.value = user.EndEducation4;
+                    dateEndEd4.disabled = true;
+                }
+
+                var Language1 = document.getElementById("Language1");
+                Language1.value = user.Language;
+                Language1.disabled = true;
+
+                var WrittenLev1 = document.getElementById("WrittenLev1");
+                WrittenLev1.value = user.Writing;
+                WrittenLev1.disabled = true;
+
+                var SpokenLev1 = document.getElementById("SpokenLev1");
+                SpokenLev1.value = user.Speaking;
+                SpokenLev1.disabled = true;
+
+                var Language2 = document.getElementById("Language2");
+                Language2.value = user.Language2;
+                Language2.disabled = true;
+
+                var WrittenLev2 = document.getElementById("WrittenLev2");
+                WrittenLev2.value = user.Writing2;
+                WrittenLev2.disabled = true;
+
+                var SpokenLev2 = document.getElementById("SpokenLev2");
+                SpokenLev2.value = user.Speaking2;
+                SpokenLev2.disabled = true;
+
+                //CARD 5
+                var sk = document.getElementById("Skills");
+                sk.value = user.Skills;
+                sk.disabled = true;
+
+                //CARD 6
+                var software = document.getElementById("Software");
+                Software.value = user.Software;
+                Software.disabled = true;
+
+                //CARD 7
+                if (user.IfWorkshop1) {
+                    var w1 = document.getElementById("Workshop1");
+                    w1.value = user.Workshop1;
+                    w1.disabled = true;
+
+                    var w1date = document.getElementById("Workshop1Date");
+                    w1date.value = user.Workshop1Date;
+                    w1date.disabled = true;
+
+                }
+                if (user.IfWorkshop2) {
+                    var w2 = document.getElementById("Workshop2");
+                    w2.value = user.Workshop2;
+                    w2.disabled = true;
+
+                    var w2date = document.getElementById("Workshop2Date");
+                    w2date.value = user.Workshop2Date;
+                    w2date.disabled = true;
+                }
+                if (user.IfWorkshop3) {
+                    var w3 = document.getElementById("Workshop3");
+                    w3.value = user.Workshop3;
+                    w3.disabled = true;
+
+                    var w3date = document.getElementById("Workshop3Date");
+                    w3date.value = user.Workshop3Date;
+                    w3date.disabled = true;
+                }
+
+                //CARD 8
+                var certifications = document.getElementById("Certifications");
+                certifications.value = user.Certifications;
+                certifications.disabled = true;
+
+                //CARD 9
+                var portfolio = document.getElementById("Portfolio");
+                portfolio.value = user.PortfolioLink;
+                portfolio.disabled = true;
+
+                //CARD 10
+                var aboutme = document.getElementById("AboutMe");
+                aboutme.value = user.AboutMe;
+                aboutme.disabled = true;
+
+
+            } else {
+                userDataCv.innerHTML = '<p>Errore durante ricerca curriculum</p>';
+            }
+        }
+
+        // Funzione per recuperare i dati dell'utente da Airtable e stamparli nel div user-cv
+        function fetchUserCv() {
+            fetch(apiUrl)
+                .then(response => response.json())
+                .then(data => {
+                    printUserCv(data.records);
+                })
+                .catch(error => {
+                    console.error('Si è verificato un errore durante la richiesta:', error);
+                });
+        }
+
+        // Chiamata alla funzione per recuperare i dati al caricamento della pagina
+        fetchUserCv();
+
+        //EDIT SCHEDA 2
+        var bttEdit2 = document.getElementById("bttEdit2");
+        bttEdit2.addEventListener("click", function () {
+            if (bttEdit2.innerText === "Edit") {
+                bttEdit2.innerText = "Finish";
+                var nome = document.getElementById("Firstname");
+                nome.disabled = false;
+                var cognome = document.getElementById("Lastname");
+                cognome.disabled = false;
+                var email = document.getElementById("Email2");
+                email.disabled = false;
+                var domicile = document.getElementById("Domicile");
+                domicile.disabled = false;
+                var date = document.getElementById("Date");
+                date.disabled = false;
+                var telephone = document.getElementById("Telephone");
+                telephone.disabled = false;
+            }
+            else {
+                bttEdit2.innerText = "Edit";
+                var nome = document.getElementById("Firstname");
+                nome.disabled = true;
+                var cognome = document.getElementById("Lastname");
+                cognome.disabled = true;
+                var email = document.getElementById("Email2");
+                email.disabled = true;
+                var domicile = document.getElementById("Domicile");
+                domicile.disabled = true;
+                var date = document.getElementById("Date");
+                date.disabled = true;
+                var telephone = document.getElementById("Telephone");
+                telephone.disabled = true;
+            }
+        });
+
+        //EDIT SCHEDA 3
+        var bttEdit3 = document.getElementById("bttEdit3");
+        bttEdit3.addEventListener("click", function () {
+            if (bttEdit3.innerText === "Edit") {
+                bttEdit3.innerText = "Finish";
+
+                //Esperienza 1
+                document.getElementById("Name1").disabled = false;
+                document.getElementById("Task1").disabled = false;
+                document.getElementById("DataStart1").disabled = false;
+                document.getElementById("DataEnd1").disabled = false;
+
+                var element2 = document.getElementById("Name2");
+                if (element2 !== null) {
+                    element2.disabled = false;
+                    document.getElementById("Task2").disabled = false;
+                    document.getElementById("DataStart2").disabled = false;
+                    document.getElementById("DataEnd2").disabled = false;
+                }
+
+                var element3 = document.getElementById("Name3");
+                if (element3 !== null) {
+                    element3.disabled = false;
+                    document.getElementById("Task3").disabled = false;
+                    document.getElementById("DataStart3").disabled = false;
+                    document.getElementById("DataEnd3").disabled = false;
+                }
+
+                var element4 = document.getElementById("Name4");
+                if (element4 !== null) {
+                    element4.disabled = false;
+                    document.getElementById("Task4").disabled = false;
+                    document.getElementById("DataStart4").disabled = false;
+                    document.getElementById("DataEnd4").disabled = false;
+                }
+            }
+            else {
+                bttEdit3.innerText = "Edit";
+
+                document.getElementById("Name1").disabled = true;
+                document.getElementById("Task1").disabled = true;
+                document.getElementById("DataStart1").disabled = true;
+                document.getElementById("DataEnd1").disabled = true;
+
+                var element2 = document.getElementById("Name2");
+                if (element2 !== null) {
+                    element2.disabled = true;
+                    document.getElementById("Task2").disabled = true;
+                    document.getElementById("DataStart2").disabled = true;
+                    document.getElementById("DataEnd2").disabled = true;
+                }
+
+                var element3 = document.getElementById("Name3");
+                if (element3 !== null) {
+                    element3.disabled = true;
+                    document.getElementById("Task3").disabled = true;
+                    document.getElementById("DataStart3").disabled = true;
+                    document.getElementById("DataEnd3").disabled = true;
+                }
+
+                var element4 = document.getElementById("Name4");
+                if (element4 !== null) {
+                    element4.disabled = true;
+                    document.getElementById("Task4").disabled = true;
+                    document.getElementById("DataStart4").disabled = true;
+                    document.getElementById("DataEnd4").disabled = true;
+                }
+            }
+        });
+
+
+        //EDIT SCHEDA 4
+        var bttEdit4 = document.getElementById("bttEdit4");
+        bttEdit4.addEventListener("click", function () {
+            if (bttEdit4.innerText === "Edit") {
+                bttEdit4.innerText = "Finish";
+
+                //Educazione 1
+                document.getElementById("Education1").disabled = false;
+                document.getElementById("DateStartEd1").disabled = false;
+                document.getElementById("DateEndEd1").disabled = false;
+
+                var ed2 = document.getElementById("Education2");
+                if (ed2 !== null) {
+                    ed2.disabled = false;
+                    document.getElementById("Education2").disabled = false;
+                    document.getElementById("DateStartEd2").disabled = false;
+                    document.getElementById("DateEndEd2").disabled = false;
+                }
+
+                var ed3 = document.getElementById("Education3");
+                if (ed3 !== null) {
+                    ed3.disabled = false;
+                    document.getElementById("Education3").disabled = false;
+                    document.getElementById("DateStartEd3").disabled = false;
+                    document.getElementById("DateEndEd3").disabled = false;
+                }
+
+                var ed4 = document.getElementById("Education4");
+                if (ed4 !== null) {
+                    ed4.disabled = false;
+                    document.getElementById("Education4").disabled = false;
+                    document.getElementById("DateStartEd4").disabled = false;
+                    document.getElementById("DateEndEd4").disabled = false;
+                }
+
+                document.getElementById("Language1").disabled = false;
+                document.getElementById("WrittenLev1").disabled = false;
+                document.getElementById("SpokenLev1").disabled = false;
+                document.getElementById("Language2").disabled = false;
+                document.getElementById("WrittenLev2").disabled = false;
+                document.getElementById("SpokenLev2").disabled = false;
+            }
+            else {
+                bttEdit4.innerText = "Edit";
+
+                document.getElementById("Education1").disabled = true;
+                document.getElementById("DateStartEd1").disabled = true;
+                document.getElementById("DateEndEd1").disabled = true;
+
+                var ed2 = document.getElementById("Education2");
+                if (ed2 !== null) {
+                    ed2.disabled = true;
+                    document.getElementById("Education2").disabled = true;
+                    document.getElementById("DateStartEd2").disabled = true;
+                    document.getElementById("DateEndEd2").disabled = true;
+                }
+
+                var ed3 = document.getElementById("Education3");
+                if (ed3 !== null) {
+                    ed3.disabled = true;
+                    document.getElementById("Education3").disabled = true;
+                    document.getElementById("DateStartEd3").disabled = true;
+                    document.getElementById("DateEndEd3").disabled = true;
+                }
+
+                var ed4 = document.getElementById("Education4");
+                if (ed4 !== null) {
+                    ed4.disabled = true;
+                    document.getElementById("Education4").disabled = true;
+                    document.getElementById("DateStartEd4").disabled = true;
+                    document.getElementById("DateEndEd4").disabled = true;
+                }
+
+                document.getElementById("Language1").disabled = true;
+                document.getElementById("WrittenLev1").disabled = true;
+                document.getElementById("SpokenLev1").disabled = true;
+                document.getElementById("Language2").disabled = true;
+                document.getElementById("WrittenLev2").disabled = true;
+                document.getElementById("SpokenLev2").disabled = true;
+            }
+        });
+
+        //EDIT SCHEDA 5
+        var bttEdit5 = document.getElementById("bttEdit5");
+        bttEdit5.addEventListener("click", function () {
+            if (bttEdit5.innerText === "Edit") {
+                bttEdit5.innerText = "Finish";
+                var Skills = document.getElementById("Skills");
+                Skills.disabled = false;
+            }
+            else {
+                bttEdit5.innerText = "Edit";
+                var Skills = document.getElementById("Skills");
+                Skills.disabled = true;
+
+            }
+        });
+
+        //EDIT SCHEDA 6
+        var bttEdit6 = document.getElementById("bttEdit6");
+        bttEdit6.addEventListener("click", function () {
+            if (bttEdit6.innerText === "Edit") {
+                bttEdit6.innerText = "Finish";
+                var Software = document.getElementById("Software");
+                Software.disabled = false;
+            }
+            else {
+                bttEdit6.innerText = "Edit";
+                var Software = document.getElementById("Software");
+                Software.disabled = true;
+
+            }
+        });
+        //EDIT SCHEDA 7
+        var bttEdit7 = document.getElementById("bttEdit7");
+        bttEdit7.addEventListener("click", function () {
+            if (bttEdit7.innerText === "Edit") {
+                bttEdit7.innerText = "Finish";
+                var workshop1 = document.getElementById("Workshop1");
+                workshop1.disabled = false;
+                var workshop1date = document.getElementById("Workshop1Date");
+                workshop1.disabled = false;
+                var workshop2 = document.getElementById("Workshop2");
+                workshop2.disabled = false;
+                var workshop2date = document.getElementById("Workshop2Date");
+                workshop2date.disabled = false;
+                var workshop3 = document.getElementById("Workshop3");
+                workshop3.disabled = false;
+                var workshop3date = document.getElementById("Workshop3Date");
+                workshop3date.disabled = false;
+            }
+            else {
+                bttEdit7.innerText = "Edit";
+                var workshop1 = document.getElementById("Workshop1");
+                workshop1.disabled = true;
+                var workshop1date = document.getElementById("Workshop1Date");
+                workshop1.disabled = true;
+                var workshop2 = document.getElementById("Workshop2");
+                workshop2.disabled = true;
+                var workshop2date = document.getElementById("Workshop2Date");
+                workshop2date.disabled = true;
+                var workshop3 = document.getElementById("Workshop3");
+                workshop3.disabled = true;
+                var workshop3date = document.getElementById("Workshop3Date");
+                workshop3date.disabled = true;
+            }
+        });
+        //EDIT SCHEDA 8
+        var bttEdit8 = document.getElementById("bttEdit8");
+        bttEdit8.addEventListener("click", function () {
+            if (bttEdit8.innerText === "Edit") {
+                bttEdit8.innerText = "Finish";
+                var certifications = document.getElementById("Certifications");
+                certifications.disabled = false;
+
+            }
+            else {
+                bttEdit8.innerText = "Edit";
+                var certifications = document.getElementById("Certifications");
+                certifications.disabled = true;
+
+            }
+        });
+        //EDIT SCHEDA 9
+        var bttEdit9 = document.getElementById("bttEdit9");
+        bttEdit9.addEventListener("click", function () {
+            if (bttEdit9.innerText === "Edit") {
+                bttEdit9.innerText = "Finish";
+                var portfoliolink = document.getElementById("Portfolio");
+                portfoliolink.disabled = false;
+
+            }
+            else {
+                bttEdit9.innerText = "Edit";
+                var portfoliolink = document.getElementById("Portfolio");
+                portfoliolink.disabled = true;
+
+            }
+        });
+
+        //EDIT SCHEDA 10
+        var bttEdit10 = document.getElementById("bttEdit10");
+        bttEdit10.addEventListener("click", function () {
+            if (bttEdit10.innerText === "Edit") {
+                bttEdit10.innerText = "Finish";
+                var AboutMe = document.getElementById("AboutMe");
+                AboutMe.disabled = false;
+
+            }
+            else {
+                bttEdit10.innerText = "Edit";
+                var AboutMe = document.getElementById("AboutMe");
+                AboutMe.disabled = true;
+
+            }
+        });
+        document.getElementById("bttEdit2").addEventListener("click", function () {
+            if (document.getElementById("bttEdit2").innerText === "Edit")
+                updateAirtable();
+        });
+
+        document.getElementById("bttEdit3").addEventListener("click", function () {
+            if (document.getElementById("bttEdit3").innerText === "Edit")
+                updateAirtable();
+        });
+
+        document.getElementById("bttEdit4").addEventListener("click", function () {
+            if (document.getElementById("bttEdit4").innerText === "Edit")
+                updateAirtable();
+        });
+
+        document.getElementById("bttEdit5").addEventListener("click", function () {
+            if (document.getElementById("bttEdit5").innerText === "Edit")
+                updateAirtable();
+        });
+
+        document.getElementById("bttEdit6").addEventListener("click", function () {
+            if (document.getElementById("bttEdit6").innerText === "Edit")
+                updateAirtable();
+        });
+
+        document.getElementById("bttEdit7").addEventListener("click", function () {
+            if (document.getElementById("bttEdit7").innerText === "Edit")
+                updateAirtable();
+        });
+
+        document.getElementById("bttEdit8").addEventListener("click", function () {
+            if (document.getElementById("bttEdit8").innerText === "Edit")
+                updateAirtable();
+        });
+
+        document.getElementById("bttEdit9").addEventListener("click", function () {
+            if (document.getElementById("bttEdit9").innerText === "Edit")
+                updateAirtable();
+        });
+
+        document.getElementById("bttEdit10").addEventListener("click", function () {
+            if (document.getElementById("bttEdit10").innerText === "Edit")
+                updateAirtable();
+        });
+
+
+
+        //FUNZIONE PER AGGIORNARE I DATI SU AIRTABLE
+        function updateAirtable() {
+            //PROBLEMA CON DOMICILE
+            var updatedFields = {
+                //SCHEDA 2
+                'Firstname': document.getElementById('Firstname').value,
+                'Lastname': document.getElementById('Lastname').value,
+                'DateOfBirth': document.getElementById('Date').value,
+                'DomicileCV': document.getElementById('Domicile').value,
+                'Telephone': document.getElementById('Telephone').value,
+                'Email': document.getElementById('Email2').value,
+
+                //SCHEDA3
+                'WorkingExperience': document.getElementById('Name1').value,
+                'WhatYouDid': document.getElementById('Task1').value,
+                'StartDate': document.getElementById('DataStart1').value,
+                'EndDate': document.getElementById('DataEnd1').value,
+                'WorkingExperience2': document.getElementById('Name2').value,
+                'WhatYouDid2': document.getElementById('Task2').value,
+                'StartDate2': document.getElementById('DataStart2').value,
+                'EndDate2': document.getElementById('DataEnd2').value,
+                'WorkingExperience3': document.getElementById('Name3').value,
+                'WhatYouDid3': document.getElementById('Task3').value,
+                'StartDate3': document.getElementById('DataStart3').value,
+                'EndDate3': document.getElementById('DataEnd3').value,
+
+                //SCHEDA 4
+                'Education': document.getElementById("Education1").value,
+                'StartEducation1': document.getElementById("DateStartEd1").value,
+                'EndEducation1': document.getElementById('DateEndEd1').value,
+                'Education2': document.getElementById("Education2").value,
+                'StartEducation2': document.getElementById("DateStartEd2").value,
+                'EndEducation2': document.getElementById('DateEndEd2').value,
+                'Education3': document.getElementById("Education3").value,
+                'StartEducation3': document.getElementById("DateStartEd3").value,
+                'EndEducation3': document.getElementById('DateEndEd3').value,
+                'Language': document.getElementById('Language1').value,
+                'Writing': document.getElementById('WrittenLev1').value,
+                'Speaking': document.getElementById('SpokenLev1').value,
+                'Language2': document.getElementById('Language2').value,
+                'Writing2': document.getElementById('WrittenLev2').value,
+                'Speaking2': document.getElementById('SpokenLev2').value,
+
+                //SCHEDA 5
+                'Skills': document.getElementById('Skills').value,
+
+                //SCHEDA 6
+                'Software': document.getElementById('Software').value,
+
+                //SCHEDA 9
+                'PortfolioLink': document.getElementById('Portfolio').value,
+            };
+
+            fetch(`https://api.airtable.com/v0/${baseId}/${tableName}?api_key=${apiKey}&filterByFormula=SEARCH('${emailToSearch}', %20{Email})`)
+                .then(response => response.json())
+                .then(data => {
+                    const records = data.records;
+                    if (records.length > 0) {
+                        const recordId = records[0].id;
+
+                        // Update the record
+                        return fetch(`https://api.airtable.com/v0/${baseId}/${tableName}/${recordId}`, {
+                            method: 'PATCH',
+                            headers: {
+                                Authorization: `Bearer ${apiKey}`,
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify({ fields: updatedFields })
+                        });
+                    } else {
+                        throw new Error('No matching records found.');
+                    }
+                })
+                .then(response => response.json())
+                .then(updatedRecord => {
+                    console.log('Record updated:', updatedRecord);
+                })
+                .catch(error => {
+                    console.error('Error updating record:', error);
+                });
+        }
+
+        //GESTIONE BARRA DI RICERCA
+        var searchInput = document.getElementById("search-input");
+
+        searchInput.addEventListener("input", function (event) {
+            var searchValue = event.target.value;
+
+            if (searchValue !== "")
+                fetchDataSearch(searchValue);
+        });
+
+        //RICERCA PER AREA DI LAVORO (BARRA RICERCA)
+        function fetchDataSearch(input) {
+            // Effettua una chiamata AJAX per recuperare gli annunci di lavoro in base al CompanyType
+            axios.get(apiUrlJobs, {
+                params: {
+                    filterByFormula: `OR(FIND('${input}', Company) > 0, FIND('${input}', Title) > 0)`
+                }
+            })
+                .then(function (response) {
+                    printJobs(response.data.records);
+                })
+                .catch(function (error) {
+                    console.error("Errore nella richiesta AJAX:", error);
+                });
+        }
+
+
+
+        //CALCOLO PERCENTUALE
+        function calculateCompletionPercentage(data) {
+            const totalFields = 59; // Numero totale di campi nel profilo utente (adattalo alle tue esigenze)
+            let completedFields = 0;
+
+            if (data.Firstname)
+                completedFields++;
+
+            if (data.Lastname)
+                completedFields++;
+
+            if (data.DomicileCV)
+                completedFields++;
+
+            if (data.Telephone)
+                completedFields++;
+
+            if (data.Degree)
+                completedFields++;
+
+            if (data.Experience)
+                completedFields++;
+
+            if (data.ExpertiseArea)
+                completedFields++;
+
+            if (data.Skills)
+                completedFields++;
+
+            if (data.Portfolio)
+                completedFields++;
+
+            if (data.AboutMe)
+                completedFields++;
+
+            if (data.Logo)
+                completedFields++;
+
+            if (data.Email)
+                completedFields++;
+
+            if (data.DateOfBirth)
+                completedFields++;
+
+            if (data.CompanyIcon1)
+                completedFields++;
+
+            if (data.WorkingExperience)
+                completedFields++;
+
+            if (data.WhatYouDid)
+                completedFields++;
+
+            if (data.StartDate)
+                completedFields++;
+
+            if (data.EndDate)
+                completedFields++;
+
+            if (data.CompanyIcon2)
+                completedFields++;
+
+            if (data.WorkingExperience2)
+                completedFields++;
+
+            if (data.WhatYouDid2)
+                completedFields++;
+
+            if (data.StartDate2)
+                completedFields++;
+
+            if (data.EndDate2)
+                completedFields++;
+
+            if (data.CompanyIcon3)
+                completedFields++;
+
+            if (data.WorkingExperience3)
+                completedFields++;
+
+            if (data.WhatYouDid3)
+                completedFields++;
+
+            if (data.StartDate3)
+                completedFields++;
+
+            if (data.EndDate3)
+                completedFields++;
+
+            if (data.CompanyIcon4)
+                completedFields++;
+
+            if (data.WorkingExperience4)
+                completedFields++;
+
+            if (data.WhatYouDid4)
+                completedFields++;
+
+            if (data.StartDate4)
+                completedFields++;
+
+            if (data.EndDate4)
+                completedFields++;
+
+            if (data.Education)
+                completedFields++;
+
+            if (data.StartEducation1)
+                completedFields++;
+
+            if (data.EndEducation1)
+                completedFields++;
+
+            if (data.Education2)
+                completedFields++;
+
+            if (data.StartEducation2)
+                completedFields++;
+
+            if (data.EndEducation2)
+                completedFields++;
+
+            if (data.Education3)
+                completedFields++;
+
+            if (data.StartEducation3)
+                completedFields++;
+
+            if (data.EndEducation3)
+                completedFields++;
+
+            if (data.Education4)
+                completedFields++;
+
+            if (data.StartEducation4)
+                completedFields++;
+
+            if (data.EndEducation4)
+                completedFields++;
+
+            if (data.Language)
+                completedFields++;
+
+            if (data.Writing)
+                completedFields++;
+
+            if (data.Speaking)
+                completedFields++;
+
+            if (data.Language2)
+                completedFields++;
+
+            if (data.Writing2)
+                completedFields++;
+
+            if (data.Speaking2)
+                completedFields++;
+
+            if (data.Software)
+                completedFields++;
+
+            if (data.Certifications)
+                completedFields++;
+
+            if (data.Workshop1)
+                completedFields++;
+
+            if (data.Workshop1Date)
+                completedFields++;
+
+            if (data.Workshop2)
+                completedFields++;
+
+            if (data.Workshop2Date)
+                completedFields++;
+
+            if (data.Workshop3)
+                completedFields++;
+
+            if (data.Workshop3Date)
+                completedFields++;
+
+            // Calcola la percentuale di completamento
+            const completionPercentuage = (completedFields / totalFields) * 100;
+            console.log(completionPercentuage.toFixed(2));
+            return completionPercentuage.toFixed(2); // Restituisce la percentuale con due decimali
+
+        }
+
+        // Funzione per impostare il riempimento del cerchio in base alla percentuale
+        function setCircleProgress(percent) {
+            var circle = document.querySelector('.progress-circle__fill circle');
+            var radius = circle.r.baseVal.value;
+            var circumference = 2 * Math.PI * radius;
+            var offset = circumference - (percent / 100) * circumference;
+
+            circle.style.strokeDasharray = circumference;
+            circle.style.strokeDashoffset = offset;
+
+            document.querySelector('.progress-circle__text').textContent = percent + '%';
+        }
+
+        const apikey = 'key5CWwwqAFfDQZQg';
+        const base = 'app3kmWOs6tcTwDXf';
+        const table = 'Workers';
+
+        // Funzione per ottenere i dati da Airtable e calcolare la percentuale di completamento per l'utente specifico
+        function fetchProfileData(email) {
+            const progressCircle = document.querySelector('.progress-circle');
+            const progressFill = progressCircle.querySelector('.progress-circle__fill');
+            const progressText = progressCircle.querySelector('.progress-circle__text');
+
+            const apiUrlW = `https://api.airtable.com/v0/${base}/${table}?api_key=${apikey}&filterByFormula=Email%3D"${email}"`;
+
+            fetch(apiUrlW)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.records.length > 0) {
+                        const profileData = data.records[0].fields;
+                        const completionPercentage = calculateCompletionPercentage(profileData);
+
+                        // Calcola l'offset in base alla percentuale calcolata
+                        const radius = progressFill.querySelector('circle').r.baseVal.value;
+                        const circumference = 2 * Math.PI * radius;
+                        const offset = circumference - completionPercentage / 100 * circumference;
+
+                        progressFill.style.strokeDashoffset = `${offset}px`;
+                        progressText.textContent = `${completionPercentage}%`;
+                        setCircleProgress(completionPercentage);
+                    } else {
+                        console.error(`Nessun utente trovato con l'email: ${email}`);
+                    }
+                })
+                .catch(error => {
+                    console.error('Si è verificato un errore durante la richiesta:', error);
+                }
+                );
+        }
+
+        // Chiamata alla funzione per ottenere i dati del profilo e calcolare la percentuale di completamento per l'utente specifico
+        fetchProfileData('alessio.bianchi@gmail.com');
+    </script>
+</body>
+
+</html>

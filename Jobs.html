@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Jobs Announcement</title>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+  <!--Material:-->
+  <link rel="stylesheet" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sora:300,400,500,700&display=swap">
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/material-components-web/4.0.0/material-components-web.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/material-components-web@10.0.0/dist/material-components-web.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined" />
+
+  <script src="https://unpkg.com/material-components-web@10.0.0/dist/material-components-web.min.js"></script>
+
+  <!--CSS:-->
+  <link rel="stylesheet" href="style/style.css">
+  <link rel="stylesheet" href="style/navbar.css">
+  <link rel="stylesheet" href="style/button.css">
+  <link rel="stylesheet" href="style/card-title.css">
+  <link rel="stylesheet" href="style/filter.css">
+  <link rel="stylesheet" href="style/card-expanded.css">
+</head>
+
+<body>
+  <!-- navbar    -->
+
+  <header class="navbar">
+    <div class="header-left">
+        <img class="logo" src="img/Logo.png" />
+        <div class="en_it">
+            <a class="en">En</a>
+            <a class="it">IT</a>
+        </div>
+    </div>
+    <div class="header-right">
+        <div class="header-page">
+            <a class="pointer option" href="home/homepage.html">Home</a>
+            <a class="pointer option" href="home/about.html">About</a>
+            <a class="pointer option" href="Recruiters.html">Recruiters</a>
+            <a class="option selected" style="text-decoration-color: #83FF00; text-decoration-thickness: 6px;" href="Jobs.html"><nobr>Applicants</nobr></a>
+            <a class="pointer option" href="home/contact_us.html">Contact us</a>
+        </div>
+        
+        <div class="profile">
+            <img id="profile_image" class="image_profile" src="img/image_profile.png">
+            <div style="display: flex; align-items: center; ">
+                <span class="name_profile"> Alessio Bia</span>
+                <button id="expandButton" class="dropbtn material-symbols-outlined" onclick="toggleDropdown()">expand_more</button>
+            </div>
+        </div>
+    </div>
+    <div id="myDropdown" class="dropdown-content">
+        <div class="profile-image-name">
+            <img src="img/image_profile.png" alt="user_profile" class="profile-image">
+            <div>Alessio Bia</div>
+        </div>
+        <div class="dropdown-contents">
+            <a href="Profile.html">CV</a>
+            <a href="#preferences">Preferences</a>
+            <a href="#settings">Settings</a>
+            <hr style="width: 100%; margin: 0px;">
+            <a href="home/homepage.html">Sign out</a>
+        </div>
+    </div>
+</header>
+<!-- navbar -->
+<!-- <nav>
+  <div class="dropdown">
+    <span class="name">
+      <a href="#personal_page" id="a_dropdown">Alessio Bia</a>
+    </span>
+    <span>
+      <button id="expandButton" class="dropbtn material-symbols-outlined"
+        onclick="toggleDropdown()">expand_more</button>
+    </span>
+    <div id="myDropdown" class="dropdown-content">
+      <div class="p1"></div>
+      <div class="profile-image-name">
+        <img src="img/image_profile.png" alt="user_profile" class="profile-image">
+        <div class="p1"></div>
+        <div>Alessio Bia</div>
+      </div>
+      <div class="p1"></div>
+      <div class="dropdown-contents">
+        <a href="#cv">CV</a>
+        <a href="#preferences">Preferences</a>
+        <a href="#settings">Settings</a>
+        <hr class="filter-separator">
+        <a href="home/homepage.html">Sign out</a>
+      </div>
+    </div>
+  </div>
+</nav> -->
+
+  <div class="mdc-layout-grid">
+    <div class="mdc-layout-grid__inner with-gutter">
+      <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2-desktop filter-style">
+          <!-- Modulo di filtraggio -->
+        <div id="FilterArea">
+          <div id="filter-form">
+
+            <div class="filter-container">
+              <span id="filter_jobs">Filter Jobs</span>
+              <button id="filter-clear-all-btt" class="mdc-button mdc-button--outlined" onclick="clearAll()">
+                <span class="mdc-button__ripple"></span>
+                <span class="mdc-button__label">Clear All</span>
+              </button>
+            </div>
+            <!-- Linea separatoria -->
+            <hr class="filter-separator">
+            <div class="filter-group">
+              <div class="filter-header">
+                <span class="filter-title">Company Types</span>
+                <span>
+                  <button id="comp" onclick="toggleFilter(this)"
+                    class="dropbtn material-symbols-outlined">expand_less</button>
+                </span>
+              </div>
+              <div id="ShowCompany" class="filter-choose">
+                <input type="checkbox" class="checkbox" id="Start Up" name="Start" value="Start Up">Start Up</input><br>
+                <input type="checkbox" class="checkbox" id="Foreign MNC" name="ForeignMNC" value="Foreign MNC">Foreign
+                MNC</input><br>
+                <input type="checkbox" class="checkbox" id="Chinese MNC" name="ChineseMNC" value="Chinese MNC">Chinese
+                MNC</input><br>
+                <input type="checkbox" class="checkbox" id="Corporate" name="Corporate"
+                  value="Corporate">Corporate</input><br>
+                <input type="checkbox" class="checkbox" id="CompanyOthers" name="CompanyOthers"
+                  value="Others">Others</input><br>
+              </div>
+            </div>
+            <!-- Linea separatoria -->
+            <hr class="filter-separator">
+            <div class="filter-group">
+              <div class="filter-header">
+                <span class="filter-title">Location</span>
+                <span>
+                  <button id="loc" onclick="toggleFilter(this)"
+                    class="dropbtn material-symbols-outlined">expand_less</button>
+                </span>
+              </div>
+              <div id="ShowLocation" class="filter-choose">
+                <input type="checkbox" class="checkbox" id="Milan" name="Milan" value="Milan">Milano</input><br>
+                <input type="checkbox" class="checkbox" id="Rome" name="Rome" value="Rome">Roma</input><br>
+                <input type="checkbox" class="checkbox" id="Beijing" name="Beijing" value="Beijing">Beijing</input><br>
+                <input type="checkbox" class="checkbox" id="Miami" name="Miami" value="Miami">Miami</input><br>
+                <input type="checkbox" class="checkbox" id="Shangai" name="Shangai" value="Shangai">Shangai</input><br>
+                <input type="checkbox" class="checkbox" id="Tokyo" name="Tokyo" value="Tokyo">Tokyo</input><br>
+                <input type="checkbox" class="checkbox" id="LocationOthers" name="LocationOthers"
+                  value="LocationOthers">Others</input><br>
+              </div>
+            </div>
+            <!-- Linea separatoria -->
+            <hr class="filter-separator">
+            <div class="filter-group">
+              <div class="filter-header">
+                <span class="filter-title">Industry</span>
+                <span>
+                  <button id="ind" onclick="toggleFilter(this)"
+                    class="dropbtn material-symbols-outlined">expand_less</button>
+                </span>
+              </div>
+              <div id="ShowIndustry" class="filter-choose">
+                <input type="checkbox" class="checkbox" id="Service Design" name="Service Design"
+                  value="Service Design">Service
+                Design</input><br>
+                <input type="checkbox" class="checkbox" id="Financial Services" name="Financial Services"
+                  value="Financial Services">Financial Services</input><br>
+                <input type="checkbox" class="checkbox" id="Hardware & Networking" name="Hardware & Networking"
+                  value="Hardware & Networking">Hardware & Networking</input><br>
+                <input type="checkbox" class="checkbox" id="Marketing" name="Marketing"
+                  value="Marketing">Marketing</input><br>
+                <input type="checkbox" class="checkbox" id="Information & Technology" name="Information & Technology"
+                  value="Information & Technology">Information & Technology</input><br>
+                <input type="checkbox" class="checkbox" id="Automotive" name="Automotive"
+                  value="Automotive">Automotive</input><br>
+                <input type="checkbox" class="checkbox" id="IndustryOthers" name="IndustryOthers"
+                  value="Others">Others</input><br>
+              </div>
+            </div>
+            <!-- Linea separatoria -->
+            <hr class="filter-separator">
+            <div class="filter-group">
+              <div class="filter-header">
+                <span class="filter-title">Salary</span>
+                <span>
+                  <button id="sal" onclick="toggleFilter(this)"
+                    class="dropbtn material-symbols-outlined">expand_less</button>
+                </span>
+              </div>
+              <div id="ShowSalary" class="filter-choose">
+                <input type="checkbox" class="checkbox" id="0-10000" name="0-10000" value="€ 0 - €10000">€ 0 -
+                €10000</input><br>
+                <input type="checkbox" class="checkbox" id="10000-20000" name="10000-20000" value="€ 10000 - €20000">€
+                10000 -
+                €20000</input><br>
+                <input type="checkbox" class="checkbox" id="20000-40000" name="20000-40000" value="€ 20000 - €40000">€
+                20000 -
+                €40000</input><br>
+                <input type="checkbox" class="checkbox" id="40000 & More" name="40000 & More" value="€ 40000 & More">€
+                40000 &
+                More</input><br>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-9-desktop">
+        <!--Barra di ricerca-->
+        <div id="SearchArea" class="search-area mdc-layout-grid__cell">
+          <form id="search-form" class="search">
+            <i class="material-icons search-icon">search</i>
+            <input id="search-input" type="text" class="search-input" style="width: 400px;"
+              placeholder="Search jobs by title, industry or opportunities" required>
+          </form>
+        </div>
+        <div class="p"></div>
+
+        <div id="job-grid">
+          <div id="jobs-data" class="mdc-layout-grid__inner">
+          </div>
+        </div>
+      </div>
+      <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-1-desktop">
+        <div class="mdc-card__action-buttons">
+          <button id="apply-all-btt" class="mdc-button mdc-button--outlined" onclick="applyAll()">
+            <span class="mdc-button__ripple"></span>
+            <span class="mdc-button__label">Apply All</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="template">
+    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
+      <div class="mdc-card smallCard">
+        <div class="inline-container">
+          <span class="image-padding">
+            <div class="image-border">
+              <div class="circle-container">
+                <img alt="logo" width="76px" height="76px" class="imgLogo"
+                  onerror="this.onerror=null;this.src='img/logo_color.png'">
+              </div>
+            </div>
+          </span>
+          <div class="column-container">
+            <div class="company-title Company">Google Inc.</div>
+            <div class="location-title Location">Milan, Italy</div>
+          </div>
+          <div class="mdc-card__action-icons">
+            <button
+              class="material-symbols-outlined mdc-icon-button mdc-card__action mdc-card__action--icon favorite-icon"
+              onclick="pressFav(this.id)" title="Favorite">favorite</button>
+          </div>
+        </div>
+        <div class="profession-title Title">
+        </div>
+        <div class="p1"></div>
+        <div class="description-title Description">
+        </div>
+        <div class="p3"></div>
+        <div class="chips-container column-container">
+          <div>
+            <span class="chips Industry" style="background: rgba(167, 188, 231, 0.2); color: #3259A8;">Industry</span>
+            <span class="chips Location" style="background: rgba(252, 189, 169, 0.2); color: #FC5824;">
+              Location</span>
+            <span class="chips CompanyType" style="background: rgba(157, 226, 172, 0.2); color: #2BAB48;">Company
+              type</span>
+          </div>
+          <div>
+            <span class="chips Salary" style="background: rgba(173, 227, 222, 0.2); color: #27887F;">Salary</span>
+            <span class="chips Opportunities"
+              style="background: rgba(216, 59, 64, 0.2); color: #C9292E;">Opportunities</span>
+          </div>
+        </div>
+        <div class="p3"></div>
+        <div class="mdc-card__actions">
+          <div class="mdc-card__action-buttons">
+            <button id="apply-now-btt" class="mdc-button mdc-button--outlined apply-button" onclick="applied(this)">
+              <span class="mdc-button__ripple"></span>
+              <span class="mdc-button__label">Apply Now</span>
+            </button>
+            <button id="view-details-btt" class="mdc-button mdc-button--outlined detail-button"
+              onclick="viewDetails(this)">
+              <span class="mdc-button__ripple"></span>
+              <span class="mdc-button__label">View Details</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TEMPLATE EXPANDED -->
+
+  <div id="templateExpanded">
+    <div class="mdc-card templateExpanded mdc-layout-grid__cell mdc-layout-grid__cell--span-8-desktop">
+      <!-- <div class="mdc-card__primary-action"> -->
+      <div class="inline-container">
+        <span class="image-padding">
+          <div class="image-border">
+            <div class="circle-container">
+              <img alt="logo" width="76px" height="76px" class="imgLogoExpanded"
+                onerror="this.onerror=null;this.src='img/logo_color.png'">
+            </div>
+          </div>
+        </span>
+        <div class="column-container">
+          <div class="company-title Company">Google Inc.</div>
+          <div class="location-title Location">Milan, Italy</div>
+        </div>
+        <div class="mdc-card__action-icons">
+          <button
+            class="material-symbols-outlined mdc-icon-button mdc-card__action mdc-card__action--icon favorite-icon"
+            id="close" onclick="closeDetails()" title="Close">close</button>
+        </div>
+      </div>
+      <div class="description-title-expanded Title">
+      </div>
+      <div class="p3"></div>
+      <div class="chips-container-expanded column-container">
+        <div>
+          <span class="chips-expanded  Industry"
+            style="background: rgba(167, 188, 231, 0.2); color: #3259A8;">Industry</span>
+          <span class="chips-expanded  Location" style="background: rgba(252, 189, 169, 0.2); color: #FC5824;">
+            Location</span>
+          <span class="chips-expanded  CompanyType"
+            style="background: rgba(157, 226, 172, 0.2); color: #2BAB48;">Company
+            type</span>
+        </div>
+        <div class="p1"></div>
+        <div>
+          <span class="chips-expanded  Salary"
+            style="background: rgba(173, 227, 222, 0.2); color: #27887F;">Salary</span>
+          <span class="chips-expanded  Opportunities"
+            style="background: rgba(216, 59, 64, 0.2); color: #C9292E;">Opportunities</span>
+        </div>
+      </div>
+      <div class="p3"></div>
+      <div class="inline-container">
+        <div class="column-container space">
+          <div class="location-title">Location</div>
+          <div class="company-title Location"></div>
+        </div>
+        <div class="column-container">
+          <div class="location-title">Job type</div>
+          <div class="company-title JobType"></div>
+
+        </div>
+      </div>
+      <div class="p3"></div>
+      <div class="mdc-card__content">
+        <div class="company-title"> Role </div>
+
+        <div class="textarea Role">
+
+          <!--<dl>
+              <dd>At <b class="Company"></b>, we take pride in continuous evolution.</dd>
+              <dd>The driving force behind our business growth is a skilled and dedicated project management team.</dd>
+              <dd>We’re searching for a highly qualified project manager to help us maintain our position as an
+                innovative
+                authority.</dd>
+              <dd>The ideal candidate will have production experience and strong skills in developing and overseeing
+                work
+                plans.</dd>
+              <dd>The project manager will also prepare and present updates regularly to relevant management channels,
+                ensuring that our goal of innovation is being achieved.</dd>
+            </dl> -->
+
+
+        </div>
+        <div class="company-title"> </div>
+        <div class="textarea Responsabilities">
+          <!--<ul>
+              <li>Establish and maintain processes for managing scope during the project lifecycle, setting quality and
+                performance standards and assessing risks</li>
+              <li>Structure and manage integrated, multitrack performance databases for digital, print, social,
+                broadcast, and experiential projects </li>
+              <li>Develop and maintain partnerships with third-party resources, including vendors and researchers</li>
+              <li>Assign and monitor resources to ensure project efficiency and maximize deliverables</li>
+              <li>Report project outcomes and/or risks to the appropriate management channels and escalate issues, as
+                necessary, according to project work plan</li>
+            </ul> -->
+
+        </div>
+
+        <div class="company-title">Required skills and qualifications</div>
+        <div class="textarea Required skills and qualifications">
+          <!--<ul>
+              <li>Four or more years of project management experience</li>
+              <li>Experience in developing web technologies and software platforms for maximum usability</li>
+              <li>Strong attention to deadlines and budgetary guidelines</li>
+              <li>Proven success working with all levels of management</li>
+              <li>Strong written and verbal communication skills</li>
+              <li>Excellent presentation skills</li>
+            </ul> -->
+        </div>
+
+        <br>
+        <div class="company-title">Preferred skills and qualifications</div>
+        <div class="textarea Preferred skills and qualifications">
+          <!--<ul>
+              <li>Professional certification such as PMP or PRINCE2</li>
+              <li>Experience in developing platforms for internal processes</li>
+              <li>Experience in coaching project team members to strengthen their abilities and skill sets</li>
+            </ul> -->
+
+        </div>
+
+        <div class="p3"></div>
+      </div>
+      <!-- </div> -->
+    </div>
+  </div>
+  </div>
+  </div>
+  </div>
+
+  <script>
+    document.getElementById("template").style.display = 'none';
+    document.getElementById("templateExpanded").style.display = 'none';
+
+    document.querySelector('body').addEventListener('click', function (event) {
+      if (event.target.parentElement != null && event.target.parentElement.classList.contains("smallCard") && !event.target.parentElement.classList.contains("cardSelected"))
+        event.target.parentElement.classList.add("cardSelected");
+      else if (event.target.parentElement != null && event.target.parentElement.classList.contains("cardSelected"))
+        event.target.parentElement.classList.remove("cardSelected");
+    });
+
+    // Close the dropdown if the user clicks outside of it
+    window.onclick = function (event) {
+      if (!event.target.matches('.dropbtn')) {
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        var i;
+        for (i = 0; i < dropdowns.length; i++) {
+          var openDropdown = dropdowns[i];
+          if (openDropdown.style.display === "block") {
+            openDropdown.style.display = "none";
+            var button = document.getElementById("expandButton");
+            button.textContent = "expand_more";
+          }
+        }
+      }
+    }
+    // Filter Dropdown
+    function toggleFilter(button) {
+      var filter_choose = button.parentElement.parentElement.nextElementSibling;
+
+      if (filter_choose.style.display === "none") {
+        filter_choose.style.display = "block";
+        button.textContent = "expand_less";
+      } else {
+        filter_choose.style.display = "none";
+        button.textContent = "expand_more";
+      }
+    }
+
+    function closeDetails(variable) {
+      document.getElementById("expandedDiv").remove();
+
+      document.getElementById("job-grid").classList.remove("mdc-layout-grid__inner");
+      document.getElementById("jobs-data").classList.add("mdc-layout-grid__inner");
+      document.getElementById("jobs-data").classList.remove("mdc-layout-grid__cell");
+      document.getElementById("jobs-data").classList.remove("mdc-layout-grid__cell--span-4");
+    }
+    document.addEventListener("click", function (event) {
+      if (!event.target.classList.contains("cardSelected")) {
+        updateApplyAllButtonState();
+      }
+    });
+
+    function applyAll() {
+      disableButton(); // Disabilita il pulsante "Apply All" prima dell'elaborazione
+      var i = 0;
+      var selected = document.getElementsByClassName("cardSelected");
+      while (selected[i] != null) {
+        selected[i].getElementsByClassName("apply-button")[0].innerHTML = "<span class='material-symbols-outlined'>done</span>Applied";
+        selected[i].getElementsByClassName("apply-button")[0].classList.add("applied");
+        selected[i].classList.remove("cardSelected");
+      }
+    }
+    function disableButton() {
+      var button = document.getElementById("apply-all-btt");
+      button.style.pointerEvents = "none";
+      button.style.opacity = "0.5";
+    }
+
+    function enableButton() {
+      var button = document.getElementById("apply-all-btt");
+      button.style.pointerEvents = "auto";
+      button.style.opacity = "1";
+    }
+    function updateApplyAllButtonState() {
+      var cardSelectedElements = document.getElementsByClassName("cardSelected");
+      var applyAllButton = document.getElementById("apply-all-btt");
+
+      if (cardSelectedElements.length > 0) {
+        enableButton();
+      } else {
+        disableButton();
+      }
+    }
+    function applied(variable) {
+      if (document.getElementById(variable.id).innerText == "Apply Now") {
+        document.getElementById(variable.id).innerHTML = "<span class='material-symbols-outlined'>done</span>Applied";
+        document.getElementById(variable.id).classList.add("applied");
+      }
+      else {
+        document.getElementById(variable.id).innerHTML = "Apply Now";
+        document.getElementById(variable.id).classList.remove("applied");
+      }
+    }
+
+    function viewDetails(variable) {
+      document.getElementById("job-grid").classList.add("mdc-layout-grid__inner");
+      document.getElementById("jobs-data").classList.remove("mdc-layout-grid__inner");
+      document.getElementById("jobs-data").classList.add("mdc-layout-grid__cell");
+      document.getElementById("jobs-data").classList.add("mdc-layout-grid__cell--span-4");
+
+      if (document.getElementById("expandedDiv2") == null)
+        document.getElementById(variable.id).scrollIntoView(false);
+
+      if (document.getElementById("expandedDiv") != null)
+        document.getElementById("expandedDiv").remove();
+
+      var expandedDiv = document.createElement("div");
+      expandedDiv.classList.add("mdc-layout-grid__cell");
+      expandedDiv.classList.add("mdc-layout-grid__cell--span-8");
+      expandedDiv.setAttribute('id', 'expandedDiv');
+      insertAfter(document.getElementById("jobs-data"), expandedDiv);
+
+      expandedDiv.innerHTML = "";
+      fetchDataByID(expandedDiv, variable.id.slice(17));
+      //expandedDiv.appendChild(data);
+    }
+
+    function insertAfter(referenceNode, newNode) {
+      referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
+    }
+
+    function pressFav(id) {
+      var icon = document.getElementById(id);
+      var iconExt = document.getElementById("favExtended" + id.slice(3));
+      if (icon.classList.contains("material-symbols-outlined"))
+        icon.classList.replace("material-symbols-outlined", "material-icons-outlined");
+      else if (icon.classList.contains("material-icons-outlined"))
+        icon.classList.replace("material-icons-outlined", "material-symbols-outlined");
+    }
+
+    //PARAMETRI RICHIESTA
+    const apiKey = 'key5CWwwqAFfDQZQg';
+    const baseId = 'app3kmWOs6tcTwDXf';
+    const tableName = 'Company';
+    var apiUrl = "https://api.airtable.com/v0/" + baseId + "/" + tableName + "?api_key=" + apiKey;
+
+    //ARRAY USATI PER I FILTRI DI RICERCA
+    var Array_company = [], Array_Location = [], Array_Industry = [], Array_Salary = [];
+
+
+    //SVUOTA CAMPI FILTRI SELEZIONATI
+    function clearAll() {
+      // Svuota tutti i filtri selezionati
+      var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+
+      //Deseleziona le caselle
+      checkboxes.forEach(function (checkbox) {
+        checkbox.checked = false;
+      });
+
+      handleFilterSubmit();
+    }
+    function fetchDataByID(container, id) {
+      // Effettua una chiamata AJAX per recuperare gli annunci di lavoro in base al CompanyType
+      axios.get(apiUrl, {
+        params: {
+          filterByFormula: `'${id}' = ID`
+        }
+      })
+        .then(function (response) {
+          // Elabora la risposta della chiamata AJAX
+          var jobs = response.data.records;
+
+          if (jobs.length > 0) {
+            for (var i = 0; i < jobs.length; i++) {
+              var job = jobs[i].fields;
+              showCard(container, job, 1);
+            }
+          } else {
+            alert("Error");
+          }
+        })
+        .catch(function (error) {
+          console.error("Errore nella richiesta AJAX:", error);
+        });
+    }
+    //RICERCA PER AREA DI LAVORO (BARRA RICERCA)
+    function fetchDataSearch(input) {
+      // Effettua una chiamata AJAX per recuperare gli annunci di lavoro in base al CompanyType
+      axios.get(apiUrl, {
+        params: {
+          filterByFormula: `OR(FIND('${input}', Industry) > 0, FIND('${input}', Title) > 0, FIND('${input}', Opportunities) > 0)`
+        }
+      })
+        .then(function (response) {
+          // Elabora la risposta della chiamata AJAX
+          var jobs = response.data.records;
+
+          // Stampa gli annunci di lavoro
+          var jobsData = document.getElementById("jobs-data");
+          jobsData.innerHTML = ""; // Pulisce i dati precedenti
+
+          if (jobs.length > 0) {
+            for (var i = 0; i < jobs.length; i++) {
+              var job = jobs[i].fields;
+              job.number = i;
+              showCard(jobsData, job, 0);
+            }
+          } else {
+            jobsData.innerHTML = "<div class='nowrapping'>Nessun annuncio di lavoro trovato.</div>";
+          }
+        })
+        .catch(function (error) {
+          console.error("Errore nella richiesta AJAX:", error);
+        });
+    }
+
+    //RICERCA CON FILTRI
+    function fetchDataFilters(Array_company, Array_Location, Array_Industry, Array_Salary) {
+
+      // Effettua la richiesta GET all'API di Airtable
+      fetch(apiUrl)
+        .then(response => response.json())
+        .then(data => {
+          // Manipola i dati ottenuti e li inserisce nella pagina
+          var records = data.records;
+          var container = document.getElementById("jobs-data");
+
+          var counter = 0;
+
+          records.forEach(record => {
+            var fields = record.fields;
+            // Rimuovi il campo "ID" dai dati
+            // delete fields.id;
+
+            // RICERCA SU TUTTO
+            if (Array_company.length === 0 && Array_Location.length === 0 && Array_Industry.length === 0 && Array_Salary.length === 0) {
+              fields.number = counter;
+              counter++
+              showCard(container, fields, 0);
+            }
+            else {
+              var find = false;
+
+              Array_company.forEach(company => {
+                for (var i = 0; i < fields.CompanyType.length; i++)
+                  if (fields.CompanyType[i] == company && find == false) {
+                    fields.number = counter;
+                    counter++
+                    showCard(container, fields, 0);
+                    find = true;
+                  }
+              })
+
+              if (find == false) {
+                Array_Location.forEach(location => {
+                  var loc = "";
+                  for (var i = 0; i < fields.Location.length; i++)
+                    loc += fields.Location[i];
+                    if (loc == location && find == false) {
+                      fields.number = counter;
+                      counter++
+                      showCard(container, fields, 0);
+                      find = true;
+                    }
+                })
+              }
+
+              if (find == false) {
+                Array_Industry.forEach(industry => {
+                  for (var i = 0; i < fields.Industry.length; i++)
+                    if (fields.Industry[i] == industry && find == false) {
+                      fields.number = counter;
+                      counter++
+                      showCard(container, fields, 0);
+                      find = true;
+                    }
+                })
+              }
+
+              if (find == false) {
+                Array_Salary.forEach(salary => {
+                  var sal = "";
+                  for (var i = 0; i < fields.Salary.length; i++)
+                    sal += fields.Salary[i];
+                    if (sal == salary && find == false) {
+                      fields.number = counter;
+                      counter++
+                      showCard(container, fields, 0);
+                      find = true;
+                    }
+                })
+              }
+            }
+          });
+        })
+        .catch(error => {
+          console.log("Si è verificato un errore:", error);
+        });
+    }
+
+    function showCard(container, fields, num) {
+      if (num == 0) {
+        var template = document.getElementById("template").children[0].cloneNode(true);
+        template.id = 'card' + JSON.stringify(fields.ID);
+        container.appendChild(template);
+        document.getElementsByClassName("favorite-icon")[fields.number].id = "fav" + fields.ID;
+        var button = document.getElementsByClassName("detail-button")[fields.number];
+        button.id = "view-details-btt-" + fields.ID;
+        var buttonApply = document.getElementsByClassName("apply-button")[fields.number];
+        buttonApply.id = "apply-now-btt-" + fields.ID;
+        var img = document.getElementsByClassName("imgLogo")[fields.number];
+        img.src = fields.Logo[0].url;
+      } else {
+        var template = document.getElementById("templateExpanded").children[0].cloneNode(true);
+        template.id = 'expandedDiv2';
+        // document.getElementsByClassName("favorite-icon-extended")[0].id = "favExtended"+fields.ID;
+        container.appendChild(template);
+        var img = document.getElementsByClassName("imgLogoExpanded")[0];
+        img.src = fields.Logo[0].url;
+      }
+
+      var order = ["Title", "Description", "Company", "CompanyType", "Industry", "Location", "Opportunities", "Role", "Required skills and qualifications", "Preferred skills and qualifications", "JobType", "Salary"];
+
+      order.forEach(columnName => {
+        var element = document.getElementById(template.id).getElementsByClassName(columnName);
+        for (var i = 0; i < element.length; i++) {
+          if (fields.hasOwnProperty(columnName) && element[i] != null) {
+            if(columnName === "Description" && num == 0)
+              element[i].innerHTML = `${fields[columnName]}`.substring(0,100) + "...";
+            else
+              element[i].innerHTML = `${fields[columnName]}`;
+          }
+          if (!fields.hasOwnProperty(columnName)) {
+            element[i].parentNode.removeChild(element[i]);
+          }
+        }
+
+      });
+    }
+
+    var elId = document.getElementById("filter-form");
+    elId.addEventListener('change', function () {
+      handleFilterSubmit();
+    });
+
+    //FUNZIONE GESTIONE MODULO FILTRAGGIO
+    function handleFilterSubmit() {
+      Array_company = [];
+      Array_Industry = [];
+      Array_Salary = [];
+      Array_Location = [];
+
+      if ("none" != document.getElementById("ShowCompany").style.display) {
+        // Ottieni i valori selezionati o inseriti dall'utente COMPANY_TYPE
+        var CompanyType_StartUp = document.getElementById("Start Up");
+        if (CompanyType_StartUp.checked)
+          Array_company.push(CompanyType_StartUp.value);
+
+        var CompanyType_ForeignMNC = document.getElementById("Foreign MNC");
+        if (CompanyType_ForeignMNC.checked)
+          Array_company.push(CompanyType_ForeignMNC.value);
+
+        var CompanyType_ChineseMNC = document.getElementById("Chinese MNC");
+        if (CompanyType_ChineseMNC.checked)
+          Array_company.push(CompanyType_ChineseMNC.value);
+
+        var CompanyType_Corporate = document.getElementById("Corporate");
+        if (CompanyType_Corporate.checked)
+          Array_company.push(CompanyType_Corporate.value);
+
+        var CompanyType_Other = document.getElementById("CompanyOthers");
+        if (CompanyType_Other.checked)
+          Array_company.push(CompanyType_Other.value);
+      }
+
+      if ("none" != document.getElementById("ShowLocation").style.display) {
+        // Ottieni i valori selezionati o inseriti dall'utente
+        var Location_Milan = document.getElementById("Milan");
+        if (Location_Milan.checked)
+          Array_Location.push(Location_Milan.value);
+
+        var Location_Rome = document.getElementById("Rome");
+        if (Location_Rome.checked)
+          Array_Location.push(Location_Rome.value);
+
+        var Location_Beijing = document.getElementById("Beijing");
+        if (Location_Beijing.checked)
+          Array_Location.push(Location_Beijing.value);
+
+        var Location_Miami = document.getElementById("Miami");
+        if (Location_Miami.checked)
+          Array_Location.push(Location_Miami.value);
+
+        var Location_Shangai = document.getElementById("Shangai");
+        if (Location_Shangai.checked)
+          Array_Location.push(Location_Shangai.value);
+
+        var Location_Tokyo = document.getElementById("Tokyo");
+        if (Location_Tokyo.checked)
+          Array_Location.push(Location_Tokyo.value);
+
+        var Location_Other = document.getElementById("LocationOthers");
+        if (Location_Other.checked)
+          Array_Location.push(Location_Other.value);
+      }
+
+      if ("none" != document.getElementById("ShowIndustry").style.display) {
+        // Ottieni i valori selezionati o inseriti dall'utente Industry
+        var Industry_ServiceDesign = document.getElementById("Service Design");
+        if (Industry_ServiceDesign.checked)
+          Array_Industry.push(Industry_ServiceDesign.value);
+
+        var Industry_FinancialServices = document.getElementById("Financial Services");
+        if (Industry_FinancialServices.checked)
+          Array_Industry.push(Industry_FinancialServices.value);
+
+        var Industry_Hardware_Networking = document.getElementById("Hardware & Networking");
+        if (Industry_Hardware_Networking.checked)
+          Array_Industry.push(Industry_Hardware_Networking.value);
+
+        var Industry_Marketing = document.getElementById("Marketing");
+        if (Industry_Marketing.checked)
+          Array_Industry.push(Industry_Marketing.value);
+
+        var Industry_InformationTechnology = document.getElementById("Information & Technology");
+        if (Industry_InformationTechnology.checked)
+          Array_Industry.push(Industry_InformationTechnology.value);
+
+        var Industry_Automotive = document.getElementById("Automotive");
+        if (Industry_Automotive.checked)
+          Array_Industry.push(Industry_Automotive.value);
+
+        var Industry_IndustryOthers = document.getElementById("IndustryOthers");
+        if (Industry_IndustryOthers.checked)
+          Array_Industry.push(Industry_IndustryOthers.value);
+      }
+
+      if ("none" != document.getElementById("ShowSalary").style.display) {
+        // Ottieni i valori selezionati o inseriti dall'utente Salary
+        var Salary_0_10000 = document.getElementById("0-10000");
+        if (Salary_0_10000.checked)
+          Array_Salary.push(Salary_0_10000.value);
+
+        var Salary_10000_20000 = document.getElementById("10000-20000");
+        if (Salary_10000_20000.checked)
+          Array_Salary.push(Salary_10000_20000.value)
+
+        var Salary_20000_40000 = document.getElementById("20000-40000");
+        if (Salary_20000_40000.checked)
+          Array_Salary.push(Salary_20000_40000.value);
+
+        var Salary_40000_More = document.getElementById("40000 & More");
+        if (Salary_40000_More.checked)
+          Array_Salary.push(Salary_40000_More.value);
+      }
+      // Rimuovi i record precedenti dalla pagina
+      var container = document.getElementById("jobs-data");
+      container.innerHTML = "";
+
+      // Richiama la funzione fetchDataFilters() con i valori del filtro
+      fetchDataFilters(Array_company, Array_Location, Array_Industry, Array_Salary);
+    }
+
+    // Associa la funzione handleFilterSubmit all'evento di submit del modulo di filtraggio
+    var filterForm = document.getElementById("filter-form");
+    filterForm.addEventListener("submit", handleFilterSubmit);
+
+
+    // Richiama la funzione fetchData() al caricamento della pagina
+    fetchDataFilters(Array_company, Array_Location, Array_Industry, Array_Salary);
+
+    //GESTIONE BARRA DI RICERCA
+    var searchInput = document.getElementById("search-input");
+
+    searchInput.addEventListener("input", function (event) {
+      var searchValue = event.target.value;
+      if (searchValue !== "") {
+        // Richiama la funzione fetchDataSearch() con il valore di ricerca
+        fetchDataSearch(searchValue);
+      }
+    });
+  </script>
+  <script>
+    //DropDown
+    /* When the user clicks on the button,
+    toggle between hiding and showing the dropdown content */
+    function toggleDropdown() {
+        centerDropdown();
+        var dropdown = document.getElementById("myDropdown");
+        var expandButton = document.getElementById("expandButton");
+
+        if (dropdown.style.display === "flex") {
+            dropdown.style.display = "none";
+            expandButton.textContent = "expand_more";
+        } else {
+            dropdown.style.display = "flex";
+            expandButton.textContent = "expand_less";
+        }
+    }
+
+    function centerDropdown() {
+        let profileImage = document.getElementById("profile_image");
+        let dropdown = document.getElementById("myDropdown");
+
+        dropdown.style.left = (profileImage.getBoundingClientRect().x - (274/2) + 23) + "px";
+
+        console.log(dropdown.style.width);
+    }
+
+    window.addEventListener("resize", function() {
+        centerDropdown();
+    });
+  </script>
+</body>
+
+</html>
