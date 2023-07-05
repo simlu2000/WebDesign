@@ -1,0 +1,212 @@
+/* GENERALI */
+.clean-layout {
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    height: auto;
+}
+
+* {
+    font-family: 'Sora', sans-serif;
+}
+
+
+.input_form {
+    margin-top: 6%;
+    margin-left: 32%;
+    margin-right: auto;
+    width: 76%;
+}
+
+#title {
+    margin-bottom: 0px;
+    margin-top: 0px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 2.5vw;
+}
+
+#caption {
+    margin-top: 4px;
+    margin-bottom: 0px;
+    font-size: 0.7vw;
+}
+
+#reg_here_link {
+    text-decoration: underline;
+}
+
+.input-label {
+
+    color: #00000099;
+    font-size: 0.9vw;
+    font-weight: 400;
+    text-align: center;
+
+}
+
+#email {
+    margin-top: 9%;
+    margin-bottom: 0px;
+}
+
+.input-box {
+    margin-top: 4%;
+    height: 2.2vw;
+    width: 90%;
+}
+
+#password {
+    margin-top: 6%;
+    margin-bottom: 0px;
+}
+
+
+.mdc-text-field--outlined .mdc-notched-outline .mdc-notched-outline__leading {
+    border-top-left-radius: 8px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 8px;
+}
+
+.mdc-text-field--outlined .mdc-notched-outline .mdc-notched-outline__trailing {
+    border-top-left-radius: 0;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 0;
+}
+
+
+#or-divider {
+    margin-top: 9%;
+    margin-bottom: 0px;
+    width: 90%;
+}
+
+.divider {
+    display: flex;
+    align-items: center;
+}
+
+.divider hr {
+    flex-grow: 1;
+    margin: 0;
+    border: none;
+    border-top: 1px solid #00000066;
+
+}
+
+.divider span {
+    padding: 0 10px;
+}
+
+#or {
+    color: #00000099;
+    font-size: 0.9em;
+}
+
+.inline-buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    height: 2.2vw;
+    margin-bottom: 3vw;
+}
+
+.sing-in-buttons {
+    margin-top: 9%;
+    margin-bottom: 0px;
+    width: 47.5%;
+    height: 3.4em;
+    text-transform: none;
+    font-size: 0.681vw;
+    border-radius: 8px;
+    letter-spacing: 0.001em;
+
+}
+
+.mdc-text-field__icon--leading {
+    margin-left: -1%;
+    margin-right: 6%;
+    transform: scale(0.9);
+}
+
+#checkbox {
+    margin-top: 4.2%;
+    margin-bottom: 0px;
+    margin-left: -2.6%;
+    width: 100%;
+
+}
+
+#checkbox-label {
+    font-size: 0.8vw;
+    width: 100%;
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    color: #00000066;
+}
+
+.mdc-checkbox__background {
+    width: 0.8em;
+    /* Modifica la larghezza del background del quadratino */
+    height: 0.8em;
+    /* Modifica l'altezza del background del quadratino */
+}
+
+.mdc-checkbox {
+    --mdc-theme-secondary: #6A38C2;
+}
+
+#btt-register {
+    margin-top: 2%;
+    margin-bottom: 0px;
+    text-transform: capitalize;
+    font-weight: 600;
+    font-size: 0.8em;
+    width: 90%;
+    height: 2.2vw;
+    border-radius: 8px;
+}
+
+#a-forgot {
+    margin-top: 4%;
+    margin-bottom: 0px;
+    font-size: 0.8vw;
+    color: #00000099;
+    text-decoration: underline;
+    float: right;
+    margin-right: 10%;
+    font-weight: 600;
+}
+
+.mdc-button {
+    --mdc-theme-primary: #6A38C2;
+}
+
+#my-label-id-google {
+    color: black;
+}
+
+#my-label-id-linkedin {
+    color: black;
+}
+
+
+#background-image {
+    position: absolute;
+    top: 0;
+    left: 38%;
+    z-index: -1;
+    background: linear-gradient(to right, transparent 7%, #F9FFF2 7%) no-repeat;
+    background-size: 100% 100%;
+
+    width: 62% !important;
+    height: 100% !important;
+
+    object-fit: contain;
+
+}

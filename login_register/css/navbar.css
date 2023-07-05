@@ -1,0 +1,165 @@
+* {
+    font-family: 'Sora', sans-serif;
+}
+
+:root {
+    --mdc-theme-primary: #6200ea;
+    --mdc-theme-secondary: #83FF00;
+}
+
+.mdc-button--outlined:not(:disabled) {
+    color: black;
+    --mdc-theme-primary: #83FF00;
+}
+
+
+#navbar {
+    width: 100%;
+    margin-top: 2.1%;
+    font-size: 0.9em;
+    display: flex;
+}
+
+#nav-sx {
+    margin-left: 3%;
+    width: 15%;
+}
+
+#nav-cen {
+    width: 65%;
+    text-align: right;
+    margin-top: 1%;
+    vertical-align: bottom;
+}
+
+#nav-dx {
+    width: 13%;
+    margin-right: 3%;
+    text-align: right;
+    margin-top: 0.5%;
+}
+
+
+#navbar a:hover {
+    border-bottom: 4px solid #83FF00;
+}
+
+
+#logo {
+    position: relative;
+    top: 21%;
+    vertical-align: bottom;
+}
+
+
+#en-language:hover,
+#it-language:hover,
+#logo:hover {
+    border-bottom: none !important;
+}
+
+
+a {
+    color: rgba(0, 0, 0, 0.6);
+    text-decoration: none;
+    margin-right: 1.9%;
+}
+
+
+
+#nav-log-in-btt {
+
+    --mdc-theme-primary: none;
+    /*background: white;*/
+}
+
+#nav-register-btt {
+    margin-left: 9%;
+    background-color: #83FF00;
+}
+
+#nav-log-in-btt,
+#nav-register-btt {
+    margin-top: -0.3%;
+
+    border: 1px solid black;
+    border-radius: 8px;
+    text-transform: none;
+    height: 2.89em;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+
+}
+
+#burger-menu {
+    display: none;
+}
+
+@media (max-width: 1600px) {
+
+    #nav-cen {
+        display: none;
+    }
+
+    #nav-dx {
+        display: none;
+    }
+
+    #burger-menu {
+        position: absolute;
+        display: block;
+        margin-top: 1%;
+        right: 4%;
+    }
+
+    #burger-checkbox {
+        display: none;
+    }
+
+    #burger-label {
+        display: inline-block;
+        cursor: pointer;
+        padding: 5px;
+    }
+
+    .burger-line {
+        display: block;
+        width: 25px;
+        height: 3px;
+        background-color: black;
+        margin-bottom: 5px;
+    }
+
+    #burger-dropdown {
+        display: none;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background-color: white;
+        padding: 10px;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        border-radius: 8px;
+
+        background: rgba(0, 0, 0, 0);
+
+        text-align: center;
+
+        align-items: center;
+
+        width: auto;
+    }
+
+    .navbar-buttons {
+        position: relative;
+        margin: 3% !important;
+    }
+
+    #burger-checkbox:checked~#burger-dropdown {
+        display: block;
+    }
+
+    #burger-dropdown a {
+        display: block;
+        margin-bottom: 10px;
+    }
+}

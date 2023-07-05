@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
+    <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/newNavbar.css">
+    <link rel="stylesheet" href="css/register.css">
+
+    <title>Register</title>
+</head>
+
+<body class="clean-layout">
+
+
+
+    <header class="navbar">
+        <div class="header-left">
+            <img class="logo" src="../img/Logo.png" />
+            <div class="en_it">
+                <a class="en">En</a>
+                <a class="it">IT</a>
+            </div>
+        </div>
+        <div class="header-right">
+            <div class="header-page">
+                <a class="pointer option" href="../home/homepage.html">Home</a>
+                <a class="pointer option" href="../home/about.html">About</a>
+                <a class="pointer option" href="../Recruiters.html">Recruiters</a>
+                <a class="pointer option" href="../Jobs.html">Applicants</a>
+                <a class="pointer option" href="../home/contact_us.html">
+                    <nobr>Contact us</nobr>
+                </a>
+            </div>
+
+            <div class="login_registration">
+                <button class="mdc-button mdc-button--raised " id="button_login"
+                    onclick="window.open('../login_register/login.html','_self');">Log in</button>
+                <button class="mdc-button mdc-button--raised" id="button_registration"
+                    onclick="window.open('../login_register/register.html','_self');">Register</button>
+            </div>
+        </div>
+    </header>
+
+
+
+    <div class="mdc-layout-grid clean-layout">
+        <div class="mdc-layout-grid__inner">
+            <div class="mdc-layout-grid__cell--span-4 input_form">
+                <h3 id="title">Welcome!</h3>
+                <p id="caption">Already have an account? <a href="login.html" id="reg_here_link">Log in here!</a></p>
+                <div class="input-field" id="email">
+                    <label class="input-label" for="email">Email</label><br>
+                    <label class="input-box mdc-text-field mdc-text-field--outlined mdc-text-field--no-label">
+                        <span class="mdc-notched-outline">
+                            <span class="mdc-notched-outline__leading"></span>
+                            <span class="mdc-notched-outline__trailing"></span>
+                        </span>
+                        <input class="mdc-text-field__input" type="text" aria-label="Label">
+                    </label>
+                </div>
+                <div class="input-field" id="password">
+                    <label class="input-label TextField-without-border-radius" for="password">Password</label><br>
+                    <label class="input-box mdc-text-field mdc-text-field--outlined mdc-text-field--no-label">
+                        <span class="mdc-notched-outline">
+                            <span class="mdc-notched-outline__leading"></span>
+                            <span class="mdc-notched-outline__trailing"></span>
+                        </span>
+                        <input class="mdc-text-field__input mdc-shape--rounded" type="text" aria-label="Label">
+                    </label>
+                </div>
+                <div class="input-field" id="repeat-password">
+                    <label class="input-label TextField-without-border-radius" for="repeat-password">Repeat
+                        Password</label><br>
+                    <label class="input-box mdc-text-field mdc-text-field--outlined mdc-text-field--no-label">
+                        <span class="mdc-notched-outline">
+                            <span class="mdc-notched-outline__leading"></span>
+                            <span class="mdc-notched-outline__trailing"></span>
+                        </span>
+                        <input class="mdc-text-field__input mdc-shape--rounded" type="text" aria-label="Label">
+                    </label>
+                </div>
+                <div class="divider" id="or-divider">
+                    <hr>
+                    <span id="or">or</span>
+                    <hr>
+                </div>
+                <div class="inline-buttons">
+                    <button onclick="window.open('../Profile.html','_self');"
+                        class="mdc-button mdc-button--outlined mdc-button--icon-leading sing-in-buttons">
+                        <span class="mdc-button__ripple"></span>
+                        <img src="img/google-icon.png"
+                            class="mdc-text-field__icon mdc-text-field__icon--leading sing-up-icons" tabindex="0"
+                            role="button">
+                        <span class="mdc-button__label" id="my-label-id-google">Sign up with Google</span>
+                    </button>
+
+                    <button onclick="window.open('../Profile.html','_self');"
+                        class="mdc-button mdc-button--outlined mdc-button--icon-leading sing-in-buttons">
+                        <span class="mdc-button__ripple"></span>
+                        <img src="img/linkedin-icon.png" class="mdc-text-field__icon mdc-text-field__icon--leading"
+                            tabindex="0" role="button">
+                        <span class="mdc-button__label" id="my-label-id-linkedin">Sign up with Linkedin</span>
+                    </button>
+                </div>
+
+
+                <div class="checkbox-container" id="checkbox">
+                    <div class="mdc-checkbox">
+                        <input type="checkbox" class="mdc-checkbox__native-control" id="checkbox-square">
+                        <div class="mdc-checkbox__background">
+                            <svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24">
+                                <path class="mdc-checkbox__checkmark-path" fill="none"
+                                    d="M1.73,12.91 8.1,19.28 22.79,4.59">
+                                </path>
+                            </svg>
+                            <div class="mdc-checkbox__mixedmark"></div>
+                        </div>
+                        <div class="mdc-checkbox__ripple"></div>
+                    </div>
+                    <label id="checkbox-label" for="my-checkbox">I agreed <a class="a-checkbox" href="#">Terms of
+                            Service</a> and <a class="a-checkbox" href="#">Privacy Policy</a></label>
+                </div>
+
+
+                <a href="register_two_m.html">
+                    <button id="btt-next" class="mdc-button mdc-button--raised">
+                        <span class="mdc-button__label">Next</span>
+                    </button>
+                </a>
+
+                <div class="mdc-layout-grid__cell--span-4 numbers-and-dots">
+                    <p id="page-number"><span id="first-number">1</span>/2</p>
+
+                    <div id="small_dots">
+                        <a>
+                            <img src="img/Ellipse 64.png" alt="turn_back" />
+                        </a>
+                        <a href="register_two_m.html">
+                            <img src="img/Ellipse 65.png" alt="turn_back" />
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+
+
+
+        </div>
+    </div>
+    <div id="background-green-for-image">
+        <img src="img/Foto.png" id="background-image" alt="">
+    </div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/material-components-web/12.0.0/material-components-web.min.js"
+        integrity="sha512-vd8rGYYw1h3AKzl8Qh79ueFyKU4xOP3Ck3qCqDXzNvp1b3gHlHynw/KB6q+xGW8Wu3glUdI4/5lRxB+hgxmKsA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+</body>
+
+</html>
