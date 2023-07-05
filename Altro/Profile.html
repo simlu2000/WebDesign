@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Il tuo profilo</title>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+  <h1>Curriculum</h1>
+  <div id="curriculum"></div>
+
+  <input class="button" type="submit" name="submit" value="Ottieni" onclick="CurrentUser()"/>
+
+  <script>
+    const apiKey = 'key5CWwwqAFfDQZQg';
+    const baseId = 'app3kmWOs6tcTwDXf';
+    const tableName = 'Contractors';
+
+    import {useSession} from '@airtable/blocks/ui';
+    function CurrentUser() {
+        const session = useSession();
+        if (!session.currentUser) {
+            return <div>This extension is being used in a public share.</div>;
+        }
+        return <ul>
+            <li>E-mail: {session.currentUser.Email}</li>
+            <li>Name: {session.currentUser.FirstName}</li>
+            <li>Surname: {session.currentUser.LastName}</li>
+
+        </ul>;
+    }
+
+    
+   
+
+
+</script>
+</body>
+</html>
