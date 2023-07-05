@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600&display=swap');
+
+body {
+    margin: 0px;
+    padding-right: 10px;
+}
+
+.navbar {
+    top: 0px;
+    display: flex;
+    justify-content: space-between;
+    margin: 36px 40px;
+
+    height: 44px;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.logo {
+    height: 34.636470794677734px;
+    width: 57.61949157714844px;
+}
+
+.en_it {
+    margin-left: 32.42px;
+
+    display: flex;
+    gap: 32px;
+
+    font-family: 'Sora';
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.en {
+    text-decoration: underline;
+    font-weight: 600;
+}
+
+.it {
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.header-page {
+    display: flex;
+    align-items: baseline;
+    gap: 36px;
+}
+
+.header-right {
+    /* Auto layout */
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 1;
+}
+
+.option {
+    text-decoration: none;
+    /* Subtitle/1 */
+
+    font-family: 'Sora';
+    font-weight: 400;
+    font-size: 14px;
+    letter-spacing: 0.0015em;
+
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.option.selected {
+
+    text-underline-position: auto;
+    text-decoration: underline;
+    text-underline-offset: -3px;
+    text-decoration-skip-ink: none;
+    /* Subtitle/1.1 */
+    
+    font-weight: 600;
+    font-size: 16px;
+
+    color: #000000;
+}
+
+::-webkit-scrollbar {
+    width: 10px;     
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    border-radius: 12px;
+background: rgba(0, 0, 0, 0.08);
+background-clip: padding-box;
+}
+
+

@@ -1,0 +1,424 @@
+
+body{
+    overflow-x: hidden;
+}
+
+.login_registration {
+    /* Auto layout */
+
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 32px;
+
+    margin-left: 72px;
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+.mdc-button{
+    text-transform: none;
+    box-shadow: none;
+}
+#button_login{
+/* Log in */
+
+    box-sizing: border-box;
+
+    /* Auto layout */
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 12px 20px;
+    gap: 8px;
+
+    width: 91px;
+    height: 44px;
+
+    background-color: white;
+    box-shadow: 0px 1px 2px rgba(16, 24, 40, 0.05);
+
+    /* Primario/nero */
+
+    border: 1px solid #000000;
+    /* Shadow/xs */
+
+    border-radius: 8px;
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+
+    font-family: 'Sora';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: 0.0125em;
+    color: black;
+
+    width: fit-content;
+}
+
+#button_registration {
+    /* Register */
+
+
+    box-sizing: border-box;
+
+    /* Auto layout */
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 12px 20px;
+    gap: 8px;
+
+    width: 112px;
+    height: 44px;
+
+    /* Primario/verde */
+
+    background: #83FF00;
+    /* Primario/nero */
+
+    border: 1px solid #000000;
+    /* Shadow/xs */
+
+    box-shadow: 0px 1px 2px rgba(16, 24, 40, 0.05);
+    border-radius: 8px;
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+
+    font-family: 'Sora';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: 0.0125em;
+    color: black;
+}
+
+.circle_1 {
+    /* Cerchio esterno */
+
+    z-index: -1;
+    box-sizing: border-box;
+
+    position: absolute;
+    left: 12.84%;
+    right: 8.93%;
+    top: -128.98%;
+    bottom: 51.2%;
+
+    border: 3px dashed rgba(0, 0, 0, 0.05);
+    border-radius: 100%;
+}
+
+.circle_2 {
+/* Cerchio interno */
+
+    z-index: -1;
+
+    box-sizing: border-box;
+
+    position: absolute;
+    left: 26.85%;
+    right: 22.94%;
+    top: -100%;
+    bottom: 72.41%;
+
+    border: 3px dashed rgba(0, 0, 0, 0.05);
+    border-radius: 100%;
+}
+
+.container {
+    width: 100%; 
+    height: calc(100vh - 116px - 14.26vh); 
+
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    gap: 40px;
+}
+
+.title {
+    /* Headline/1 */
+    margin-top: 70px;
+    font-family: 'Sora';
+    font-style: Light;
+    font-weight: 300;
+    font-size: 95px;
+    line-height: 120px;
+    text-align: center;
+    vertical-align: top;
+    letter-spacing: -0.015em;
+    color: rgba(0, 0, 0, 0.9);
+}
+
+.subtitle{
+
+    font-family: 'Sora';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 31px;
+    /* or 155% */
+
+    text-align: center;
+    letter-spacing: 0.0015em;
+
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.container-middle{
+    margin-top: 20px;
+
+    display: flex;
+    gap: 43.68px;
+    align-items: center;
+    justify-content: center;
+}
+
+#search_job {
+    /* Search Jobs */
+
+    box-sizing: border-box;
+
+    /* Auto layout */
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 12px 20px;
+
+    width: fit-content;
+    height: fit-content;
+
+    /* Primario/verde */
+
+    background: #83FF00;
+    /* Primario/nero */
+
+    border: 1px solid #000000;
+    /* Shadow/xs */
+
+    box-shadow: 0px 1px 2px rgba(16, 24, 40, 0.05);
+    border-radius: 8px;
+
+    font-family: 'Sora';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 0.0125em;
+    color: black;
+}
+
+.triangle{
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-3px, -6px);
+    border-top: 7px solid transparent;
+    border-bottom: 7px solid transparent;
+    border-left: 7px solid white;
+    border-right: 7px solid transparent;
+}
+
+.play {
+    left: 49.96%;
+    width: 36px;
+    height: 36px;
+
+    background: #6A38C2;
+    border-radius: 100%;
+}
+
+.container-play{
+    height: 36px;
+    gap: 15px;
+    align-items: center;
+    display: flex;
+}
+
+.work {
+    width: 102px;
+
+    /* Subtitle/2 */
+
+    font-family: 'Sora';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 18px;
+    /* identical to box height */
+
+    text-align: center;
+    letter-spacing: 0.001em;
+
+    /* Primario/nero */
+
+    color: #000000;
+}
+
+.bottom_down {
+    position: absolute;
+    height: 38px;
+
+    border-radius: 100px;
+    border: 1px solid var(--secondario-nero-40, rgba(0, 0, 0, 0.40));
+    background-color: transparent;
+
+    font-size: 14px;
+    font-family: Sora;
+    font-weight: 600;
+
+    color: rgba(0, 0, 0, 0.40);
+
+    padding: 10px;
+
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.btn_1 {
+    left: -3.12%;
+    right: 93.91%;
+    top: 85.74%;
+    bottom: 10.74%;
+}
+
+.btn_2 {
+    left: 7.21%;
+    right: 82.47%;
+    top: 85.74%;
+    bottom: 10.74%;
+}
+
+.btn_3 {
+    left: 19.19%;
+right: 70.49%;
+top: 85.74%;
+bottom: 10.74%;
+}
+
+.btn_4 {
+    left: 31.72%;
+right: 59.06%;
+top: 85.74%;
+bottom: 10.74%;
+
+}
+
+.btn_5 {
+    left: 42.6%;
+right: 48.18%;
+top: 85.74%;
+bottom: 10.74%;
+}
+
+.btn_6 {
+    left: 54.61%;
+right: 38.41%;
+top: 85.74%;
+bottom: 10.74%;
+}
+
+.btn_7 {
+    left: 63%;
+    right: 25.5%;
+    top: 85.74%;
+    bottom: 10.74%;
+}
+
+.btn_8 {
+    left: 75.1%;
+    right: 12.86%;
+    top: 85.74%;
+    bottom: 10.74%;
+}
+
+.btn_9 {
+    left: 89.66%;
+right: 0.03%;
+top: 85.74%;
+bottom: 10.74%;
+}
+
+.btn_10 {
+    left: -2.34%;
+right: 92.03%;
+top: 91.48%;
+bottom: 5%;
+}
+
+.btn_11 {
+    left: 9.64%;
+right: 80.05%;
+top: 91.48%;
+bottom: 5%;
+}
+
+.btn_12 {
+    left: 20.52%;
+right: 66.98%;
+top: 91.48%;
+bottom: 5%;
+}
+
+.btn_13 {
+    left: 35.78%;
+right: 53.91%;
+top: 91.48%;
+bottom: 5%;
+}
+
+.btn_14 {
+    left: 47.76%;
+right: 41.93%;
+top: 91.48%;
+bottom: 5%;
+}
+
+.btn_15 {
+    left: 61.17%;
+right: 31.38%;
+top: 91.48%;
+bottom: 5%;
+}
+
+.btn_16 {
+    left: 69.4%;
+right: 21.38%;
+top: 91.48%;
+bottom: 5%;
+}
+
+.btn_17 {
+    left: 79.74%;
+right: 9.95%;
+top: 91.48%;
+bottom: 5%;
+}
+
+.btn_18 {
+    left: 92.27%;
+right: -1.48%;
+top: 91.48%;
+bottom: 5%;
+}

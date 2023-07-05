@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="stylesheet"  href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
+    <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+
+    <title>Contact us</title>
+
+    <link href="contact_us.css" rel="stylesheet">
+    <link href="navbar.css" rel="stylesheet">
+    <link href="navbar_profile.css" rel="stylesheet">
+</head>
+<body>
+    <header class="navbar">
+        <div class="header-left">
+            <img class="logo" src="../img/Logo.png" />
+            <div class="en_it">
+                <a class="en">En</a>
+                <a class="it">IT</a>
+            </div>
+        </div>
+        <div class="header-right">
+            <div class="header-page">
+                <a class="pointer option" href="homepage.html">Home</a>
+                <a class="pointer option" href="about.html">About</a>
+                <a class="pointer option" href="../Recruiters.html">Recruiters</a>
+                <a class="pointer option" href="../Jobs.html">Applicants</a>
+                <a class="option selected" style="text-decoration-color: #83FF00; text-decoration-thickness: 6px;" href="contact_us.html"><nobr>Contact us</nobr></a>
+            </div>
+            
+            <div class="profile">
+                <img id="profile_image" class="image_profile" src="../img/image_profile.png">
+                <div style="display: flex; align-items: center; ">
+                    <span class="name_profile"> Alessio Bia</span>
+                    <button id="expandButton" class="dropbtn material-symbols-outlined" onclick="toggleDropdown()">expand_more</button>
+                </div>
+            </div>
+        </div>
+        <div id="myDropdown" class="dropdown-content">
+            <div class="profile-image-name">
+                <img src="../img/image_profile.png" alt="user_profile" class="profile-image">
+                <div>Alessio Bia</div>
+            </div>
+            <div class="dropdown-contents">
+                <a href="../Profile.html">CV</a>
+                <a href="#preferences">Preferences</a>
+                <a href="#settings">Settings</a>
+                <hr style="width: 100%; margin: 0px;">
+                <a href="homepage.html">Sign out</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="mdc-layout-grid left_grid">
+        <div class="mdc-layout-grid__inner content-grid">
+            <div class="mdc-layout-grid__cell--span-12" style="font-weight: 600;font-size: 20px; margin-bottom: 15px;"> Contact Us</div>
+            <div class="mdc-layout-grid__cell--span-12"> <hr style="width: 100%; margin: 0px;"></div>
+            <div class="mdc-layout-grid__cell--span-12" style="font-size: 16px; font-weight: 400; margin-top: 20px;"> Actions</div>
+            <div class="mdc-layout-grid__cell--span-12 element"> Modify / delete profile</div>
+            <div class="mdc-layout-grid__cell--span-12 element"> Privacy</div>
+            <div class="mdc-layout-grid__cell--span-12 element"> Tell us your expirienxe with Briji</div>
+            <div class="mdc-layout-grid__cell--span-12 element"> I don't get notifications</div>
+            <div class="mdc-layout-grid__cell--span-12 element"> Applications</div>
+            <div class="mdc-layout-grid__cell--span-12 element"> Worker's data</div>
+        </div>
+    </div>
+    <div class="main">
+        <span class="titol"> Get in touch </span> <br><br><br><br>
+        <span class="subtitol"> How we can help you? Don't hesitate to contact us, <span style="color: #6a38c2;">we're here for you.</span></span>
+
+        <div class="form_contact">
+            <div class="item_1">
+                <div class="text_label">First Name</div>
+                <input type="text" class="input_form">
+            </div>
+
+            <div class="item_2">
+                <div class="text_label">Last Name</div>
+                <input type="text" class="input_form">
+            </div>
+
+            <div class="item_3">
+                <div class="text_label">Email</div>
+                <input type="text" class="input_form input_large">
+            </div>
+
+            <div class="item_4">
+                <div class="text_label">Phone Number</div>
+                <input type="text" class="input_form input_large">
+            </div>
+
+            <div class="item_5">
+                <div class="text_label">Message</div>
+                <textarea type="text" class="input_form input_mex"></textarea>
+            </div>
+        </div>
+
+        <div>
+            <div class="mdc-touch-target-wrapper" style="display: flex; align-items: center; gap: 18px;">
+                <div class="mdc-checkbox mdc-checkbox--touch" >
+                    <input type="checkbox" class="mdc-checkbox__native-control" id="checkbox-1" />
+                    <div class="mdc-checkbox__background" style="margin-top:-5px; margin-left: -15px; width: 29px; height: 29px; background-color: #1FFF484D; border-color: rgba(0, 0, 0, 0.2); border-radius: 10px;">
+                        <svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24">
+                            <path class="mdc-checkbox__checkmark-path"style="color: black;" fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
+                        </svg>
+                        <div class="mdc-checkbox__mixedmark"></div>
+                    </div>
+                </div>
+                <span style="color: var(--secondario-nero-60, rgba(0, 0, 0, 0.60)); font-size: 16px; font-family: Sora;">I accept terms & conditions</span>
+                <button class="mdc-button mdc-button--raised btn_submit">Submit</button>
+            </div>
+        </div>
+        
+        <img class="image_bottom_right" src="../img/image_bottom_contact.png" />
+    </div>
+
+</body>
+    <script>
+        //DropDown
+        /* When the user clicks on the button,
+        toggle between hiding and showing the dropdown content */
+        function toggleDropdown() {
+            centerDropdown();
+            var dropdown = document.getElementById("myDropdown");
+            var expandButton = document.getElementById("expandButton");
+
+            if (dropdown.style.display === "flex") {
+                dropdown.style.display = "none";
+                expandButton.textContent = "expand_more";
+            } else {
+                dropdown.style.display = "flex";
+                expandButton.textContent = "expand_less";
+            }
+        }
+
+        function centerDropdown() {
+            let profileImage = document.getElementById("profile_image");
+            let dropdown = document.getElementById("myDropdown");
+
+            dropdown.style.left = (profileImage.getBoundingClientRect().x - (274/2) + 23) + "px";
+
+            console.log(dropdown.style.width);
+        }
+
+        window.addEventListener("resize", function() {
+            centerDropdown();
+        });
+    </script>
+</html>
+
