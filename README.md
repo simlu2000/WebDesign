@@ -10,3 +10,6 @@ Funzionalità lato back-end implemetate:
 
 Lo sviluppo back-end delle funzionalità di Accesso e registrazione utente/azienda non è stato effettuato.
 Per quanto riguarda il design, è stato utilizzato, per alcune componenti, il Material Design 2.
+
+Briji è stato pubblicato su ALtervista al seguente URL:
+https://gruppo5webd.altervista.org/progetto_finale/
